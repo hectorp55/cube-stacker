@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     // Public Methods
     // ===========================================================
 
+    public void BlockMissed()
+    {
+        blockController.StopStepping();
+    }
+
 
     // ===========================================================
     // Private Methods

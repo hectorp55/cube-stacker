@@ -43,6 +43,7 @@ public class TouchInput : MonoBehaviour
 
     private void OnTouchDetected()
     {
+        // TODO: block inputs untill the block starts moving again. Dont allow multiple touches in one spot.
         blockController.PlaceBlock();
     }
 }
