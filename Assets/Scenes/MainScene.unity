@@ -517,7 +517,6 @@ GameObject:
   m_Component:
   - component: {fileID: 682590034}
   - component: {fileID: 682590035}
-  - component: {fileID: 682590036}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -553,18 +552,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   Blocks: {fileID: 1917181662}
---- !u!114 &682590036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682590033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d94a90c2ded4790a0328cf77037469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TouchInput
 --- !u!1001 &909985115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1102,6 +1089,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710d003c5cf63499fbcd7d1978968100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockStepper
+--- !u!114 &1917181668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917181662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d94a90c2ded4790a0328cf77037469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchInput
 --- !u!1001 &1942173701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1226,6 +1225,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4890478468484015686, guid: 1436e9cd79e124ea9b5ee3c6823e5d53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1917181667}
+    - targetCorrespondingSourceObject: {fileID: 4890478468484015686, guid: 1436e9cd79e124ea9b5ee3c6823e5d53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917181668}
   m_SourcePrefab: {fileID: 100100000, guid: 1436e9cd79e124ea9b5ee3c6823e5d53, type: 3}
 --- !u!1001 &5881951921635851373
 PrefabInstance:

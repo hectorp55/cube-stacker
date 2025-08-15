@@ -45,6 +45,6 @@ public class TouchInput : MonoBehaviour
     // Your custom method that runs on touch
     private void OnTouchDetected()
     {
-        // TODO: the block stop function should be called here instead
+        blockController.StopStepping();
     }
 }

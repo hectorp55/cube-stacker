@@ -31,7 +31,7 @@ public class BlockController : MonoBehaviour
 
     public void StopStepping()
     {
-        // TODO: stop moving the block. It was placed.
+        blockStepper.StopStepping();
     }
 
     // ===========================================================

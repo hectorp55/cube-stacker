@@ -21,6 +21,8 @@ public class BlockStepper : MonoBehaviour
     public void StopStepping()
     {
         isStepping = false;
+        print("STOP");
+        // TODO: pick up speed after a stop
     }
 
 
@@ -58,8 +60,6 @@ public class BlockStepper : MonoBehaviour
         // Adjust transform position
         float step = 1.5f * stepDirection; // TODO: make this a constant
         transform.position = transform.position + new Vector3(step, 0, 0);
-        // TODO: determine if I am at the end of page and turn around
-        // TODO: pick up speed after a stop
     }
 
     private void checkForFlip()
