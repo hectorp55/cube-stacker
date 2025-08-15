@@ -6,7 +6,7 @@ public class TouchInput : MonoBehaviour
     private BlockController blockController;
 
     // ===========================================================
-    // Public Methods
+    // Mono Methods
     // ===========================================================
 
     void Awake()
@@ -38,13 +38,11 @@ public class TouchInput : MonoBehaviour
 
     private void HandleFingerDown(Finger finger)
     {
-        Debug.Log("Touch detected at: " + finger.screenPosition);
         OnTouchDetected();
     }
 
-    // Your custom method that runs on touch
     private void OnTouchDetected()
     {
-        blockController.StopStepping();
+        blockController.PlaceBlock();
     }
 }

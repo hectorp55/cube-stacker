@@ -3,20 +3,12 @@ using UnityEngine;
 public class BlockController : MonoBehaviour
 {
     private BlockStepper blockStepper;
+    private BlockPlacer blockPlacer;
 
     void Awake()
     {
         blockStepper = GetComponent<BlockStepper>();
-    }
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
+        blockPlacer = GetComponent<BlockPlacer>();
     }
 
     // ===========================================================
@@ -27,6 +19,11 @@ public class BlockController : MonoBehaviour
     public void StartStepping()
     {
         blockStepper.StartStepping();
+    }
+
+    public void PlaceBlock()
+    {
+        blockPlacer.PlaceBlock();
     }
 
     public void StopStepping()
