@@ -4,6 +4,9 @@ using UnityEngine;
 public class BlockStepper : MonoBehaviour
 {
     private bool isStepping = false;
+    private int stepDirection = 1;
+    private int currentPosition = 6; // TODO: make these constants
+    private int endPosition = 11; // TODO: make these constants
 
     // ===========================================================
     // Public Methods
@@ -46,9 +49,24 @@ public class BlockStepper : MonoBehaviour
 
     private void moveBlockPosition()
     {
-        print("Step");
-        const float step = 1.5f; // TODO: make this a constant
-        Vector3 currentPosition = transform.position;
-        transform.position = currentPosition + new Vector3(step, 0, 0);
+        // Check to see if the flip needs to happen
+        checkForFlip();
+
+        // Adjust position in class
+        currentPosition += stepDirection;
+
+        // Adjust transform position
+        float step = 1.5f * stepDirection; // TODO: make this a constant
+        transform.position = transform.position + new Vector3(step, 0, 0);
+        // TODO: determine if I am at the end of page and turn around
+        // TODO: pick up speed after a stop
+    }
+
+    private void checkForFlip()
+    {
+        if (currentPosition >= endPosition || currentPosition <= 1)
+        {
+            stepDirection = stepDirection * -1;
+        }
     }
 }
