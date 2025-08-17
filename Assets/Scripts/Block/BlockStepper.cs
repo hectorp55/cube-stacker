@@ -7,6 +7,7 @@ public class BlockStepper : MonoBehaviour
     private int stepDirection = 1;
     private int currentPosition = Constants.STARTING_BLOCK_POSITION;
     private SpriteRenderer spriteRenderer;
+    private float currentStepSpeed = Constants.STARTING_TIME_BETWEEN_STEPS;
 
     // ===========================================================
     // Mono Methods
@@ -23,20 +24,27 @@ public class BlockStepper : MonoBehaviour
 
     public void StartStepping()
     {
-        // TODO: choose a random starting point for block before starting
+        // Choose a random starting point for block before starting
         moveToRandomStartingPositionOnRow();
 
-        isStepping = true;
+        // TODO: only restart if game is still active
+
+        // Make stepper visible
         spriteRenderer.enabled = true;
+        // Start stepping
+        isStepping = true;
         StartCoroutine(stepWithDelay());
     }
 
     public void StopStepping()
     {
-        isStepping = false;
+        // Make stepper invisible
         spriteRenderer.enabled = false;
-        print("Stop");
-        // TODO: pick up speed after a stop
+        // Stop stepping
+        isStepping = false;
+        // Pick up speed after a stop
+        currentStepSpeed = getNewTimeBetweenSteps(currentStepSpeed);
+        print(currentStepSpeed);
     }
 
 
@@ -55,7 +63,7 @@ public class BlockStepper : MonoBehaviour
         doStep();
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(Constants.STARTING_TIME_BETWEEN_STEPS);
+        yield return new WaitForSeconds(currentStepSpeed);
 
         if (isStepping)
         {
@@ -78,6 +86,7 @@ public class BlockStepper : MonoBehaviour
 
     private void checkForFlip()
     {
+        // TODO: should not flip right on edge should flip a little off screen
         if (currentPosition >= Constants.RIGHT_EDGE_BLOCK_POSITION ||
         currentPosition <= Constants.LEFT_EDGE_BLOCK_POSITION)
         {
@@ -91,13 +100,27 @@ public class BlockStepper : MonoBehaviour
         currentPosition = startingPosition;
         Vector3 middlePosition = new Vector3(0, transform.position.y, transform.position.z);
         transform.position = middlePosition + new Vector3(startingXPosition, 0, 0);
+        stepDirection = currentPosition <= 0 ? 1 : -1;
     }
 
     private (float startingXPosition, int startingPosition) getRandomStartingXPosition()
     {
-        // Get a random integer between -5 and 5 (inclusive of -5, exclusive of 5)
-        int randomInt = Random.Range(-5, 6); // upper bound is exclusive for ints
+        // Get a random integer between -4 and 4
+        int randomInt = Random.Range(-4, 5); // upper bound is exclusive for ints
 
         return (Constants.STARTING_X_POSITION + (randomInt * Constants.STEP_SIZE), randomInt);
+    }
+
+    private float getNewTimeBetweenSteps(float previousTimeBetweenSteps)
+    {
+        // TODO: lock in this formula for the top speed
+        if (previousTimeBetweenSteps <= 0.05f)
+        {
+            return 0.05f;
+        }
+        else
+        {
+            return previousTimeBetweenSteps - 0.01f;   
+        }
     }
 }

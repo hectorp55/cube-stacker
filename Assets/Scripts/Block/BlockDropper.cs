@@ -20,7 +20,6 @@ public class BlockDropper : MonoBehaviour
 
     public void DropBlock()
     {
-        print("DROP");
         StartCoroutine(dropWithDelay());
         // Alert when block leaves the screen or hits something
     }
@@ -52,7 +51,6 @@ public class BlockDropper : MonoBehaviour
             // TODO: blink as we fall
             // TODO: play negative sounds effect
             // Alert that the block has fallen to the bottom
-            print("BOTTOM");
             Destroy(gameObject);
             // Destroy the block
         }

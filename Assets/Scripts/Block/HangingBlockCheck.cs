@@ -40,12 +40,10 @@ public class HangingBlockCheck : MonoBehaviour
         // Perform the raycast
         if (Physics.Raycast(ray, out hit, checkDistance, layerMask))
         {
-            Debug.Log("Object below: " + hit.collider.name);
             return true;
         }
         else
         {
-            Debug.Log("No object detected below.");
             return false;
         }
     }
