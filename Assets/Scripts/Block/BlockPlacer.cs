@@ -46,7 +46,10 @@ public class BlockPlacer : MonoBehaviour
 
         // Start Stepping
         // TODO: only continue stepping if the game is still active
-        blockController.StartStepping();
+        if (gameManager.IsGameActive)
+        {
+            blockController.StartStepping();   
+        }
         // TODO: add particle explosion or like star explosion for feeling good about hitting
     }
 }

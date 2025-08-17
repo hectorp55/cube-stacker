@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BlockDropper : MonoBehaviour
 {
+    private GameManager gameManager;
     private HangingBlockCheck hangingBlockCheck;
 
     // ===========================================================
@@ -11,6 +12,7 @@ public class BlockDropper : MonoBehaviour
 
     void Awake()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         hangingBlockCheck = GetComponent<HangingBlockCheck>();
     }
 
@@ -40,7 +42,7 @@ public class BlockDropper : MonoBehaviour
 
         // Wait for 1 seconds
         yield return new WaitForSeconds(Constants.STARTING_TIME_BETWEEN_STEPS);
-        
+
         if (!isBlockOnBottom())
         {
             // Step down again
@@ -50,9 +52,10 @@ public class BlockDropper : MonoBehaviour
         {
             // TODO: blink as we fall
             // TODO: play negative sounds effect
-            // Alert that the block has fallen to the bottom
-            Destroy(gameObject);
+            // Notify game manager there was a drop
+            gameManager.BlockDropped();
             // Destroy the block
+            Destroy(gameObject);
         }
     }
 

@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject Blocks;
 
     private BlockController blockController;
+    public bool IsGameActive { get; private set; } = false;
 
     void Awake()
     {
@@ -13,12 +15,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartGame();
+        startGame();
     }
 
     void Update()
     {
-        
+
     }
 
     // ===========================================================
@@ -27,7 +29,15 @@ public class GameManager : MonoBehaviour
 
     public void BlockMissed()
     {
-        blockController.StopStepping();
+        print("MISSED");
+        IsGameActive = false;
+    }
+
+    public void BlockDropped()
+    {
+        // TODO: calculate whether the game should keep going or end
+        print("GAMEOVER");
+        gameOver();
     }
 
 
@@ -35,8 +45,14 @@ public class GameManager : MonoBehaviour
     // Private Methods
     // ===========================================================
 
-    private void StartGame()
+    private void startGame()
     {
+        IsGameActive = true;
         blockController.StartStepping();
+    }
+
+    private void gameOver()
+    {
+        SceneManager.LoadScene(Scenes.SCORE_SCENE);
     }
 }

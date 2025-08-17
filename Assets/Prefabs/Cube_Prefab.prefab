@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 682312690, guid: bf13a78b233284442ad4334604912201, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -127,10 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90665b917020c4c089ffd7518892abf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HangingBlockCheck
-  checkDistance: 1.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 51
 --- !u!114 &-8476942946923292300
 MonoBehaviour:
   m_ObjectHideFlags: 0
