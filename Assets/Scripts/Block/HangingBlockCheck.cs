@@ -3,21 +3,26 @@ using UnityEngine;
 public class HangingBlockCheck : MonoBehaviour
 {
     // How far to check downwards
-    public float checkDistance = Constants.STEP_SIZE;
-    public LayerMask layerMask = Physics.DefaultRaycastLayers;
+    private float checkDistance = Constants.STEP_SIZE;
+    private LayerMask layerMask = Physics.DefaultRaycastLayers;
 
     private GameManager gameManager;
+    private BlockController blockController;
 
     void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        blockController = GetComponent<BlockController>();
     }
 
     void Start()
     {
-        if (!isBlockUnderneath())
+        if (!IsBlockUnderneath())
         {
+            // Notify game manager there was a miss
             gameManager.BlockMissed();
+            // Drop the block off the screen
+            blockController.DropBlock();
             // TODO: hide the placer block
         }
     }
@@ -26,12 +31,7 @@ public class HangingBlockCheck : MonoBehaviour
     // Public Methods
     // ===========================================================
 
-
-    // ===========================================================
-    // Private Methods
-    // ===========================================================
-
-    bool isBlockUnderneath()
+    public bool IsBlockUnderneath()
     {
         // Create a ray starting from the object's position going down
         Ray ray = new Ray(transform.position, Vector3.down);
@@ -50,5 +50,8 @@ public class HangingBlockCheck : MonoBehaviour
         }
     }
 
+    // ===========================================================
+    // Private Methods
+    // ===========================================================
 }
 
