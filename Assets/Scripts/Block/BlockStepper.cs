@@ -55,7 +55,7 @@ public class BlockStepper : MonoBehaviour
         doStep();
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(Constants.STARTING_TIME_BETWEEN_STEPS);
 
         if (isStepping)
         {

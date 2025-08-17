@@ -38,15 +38,15 @@ public class BlockPlacer : MonoBehaviour
         blockController.StopStepping();
 
         // Pause for effects of placement
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(Constants.PLACING_PAUSE_EFFECT);
 
         // Move stepping block up
         float lift = 1.5f;
         transform.position = transform.position + new Vector3(0, lift, 0);
 
         // Start Stepping
+        // TODO: only continue stepping if the game is still active
         blockController.StartStepping();
         // TODO: add particle explosion or like star explosion for feeling good about hitting
-        // TODO: only place the block if the game is still active
     }
 }
