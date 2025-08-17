@@ -5,8 +5,8 @@ public class BlockStepper : MonoBehaviour
 {
     private bool isStepping = false;
     private int stepDirection = 1;
-    private int currentPosition = 6; // TODO: make these constants
-    private int endPosition = 11; // TODO: make these constants
+    private int currentPosition = Constants.STARTING_BLOCK_POSITION;
+    private int endPosition = Constants.EDGE_BLOCK_POSITION;
 
     // ===========================================================
     // Public Methods
@@ -58,7 +58,7 @@ public class BlockStepper : MonoBehaviour
         currentPosition += stepDirection;
 
         // Adjust transform position
-        float step = 1.5f * stepDirection; // TODO: make this a constant
+        float step = Constants.STEP_SIZE * stepDirection;
         transform.position = transform.position + new Vector3(step, 0, 0);
     }
 

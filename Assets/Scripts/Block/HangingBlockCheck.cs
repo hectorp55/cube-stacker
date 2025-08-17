@@ -3,7 +3,7 @@ using UnityEngine;
 public class HangingBlockCheck : MonoBehaviour
 {
     // How far to check downwards
-    public float checkDistance = 1.5f; // TODO: match with step constants
+    public float checkDistance = Constants.STEP_SIZE;
     public LayerMask layerMask = Physics.DefaultRaycastLayers;
 
     private GameManager gameManager;
