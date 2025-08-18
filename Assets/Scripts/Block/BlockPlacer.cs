@@ -11,6 +11,7 @@ public class BlockPlacer : MonoBehaviour
     private GameObject leftCube;
     private GameObject middleCube;
     private GameObject rightCube;
+    private bool isPlacingBlock = false;
 
     void Awake()
     {
@@ -32,8 +33,13 @@ public class BlockPlacer : MonoBehaviour
 
     public void PlaceBlock()
     {
-        // Place block
-        StartCoroutine(placeBlock());
+        // Only allow a place if the previous place routine is done
+        if (!isPlacingBlock)
+        {
+            isPlacingBlock = true;
+            // Place block
+            StartCoroutine(placeBlock());
+        }
     }
 
     // ===========================================================
@@ -59,11 +65,11 @@ public class BlockPlacer : MonoBehaviour
         yield return new WaitForSeconds(Constants.PLACING_PAUSE_EFFECT);
 
         // Start Stepping
-        // TODO: only continue stepping if the game is still active
         if (gameManager.IsGameActive)
         {
             blockController.StartStepping();
         }
+        isPlacingBlock = false;
         // TODO: add particle explosion or like star explosion for feeling good about hitting
     }
 
