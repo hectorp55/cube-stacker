@@ -7,6 +7,7 @@ public class BlockStepper : MonoBehaviour
     private int stepDirection = 1;
     private int currentPosition = Constants.STARTING_BLOCK_POSITION;
     private float currentStepSpeed = Constants.STARTING_TIME_BETWEEN_STEPS;
+    private int? towerMiddle = null;
 
 
     private GameObject leftCube;
@@ -30,8 +31,6 @@ public class BlockStepper : MonoBehaviour
         // Choose a random starting point for block before starting
         moveToRandomStartingPositionOnRow();
 
-        // TODO: only restart if game is still active
-
         // Make stepper visible
         editBlockVisibility(true);
         // Start stepping
@@ -41,13 +40,17 @@ public class BlockStepper : MonoBehaviour
 
     public void StopStepping()
     {
+        // First time we stop mark this as the tower middle
+        if (!towerMiddle.HasValue)
+        {
+            towerMiddle = currentPosition;
+        }
         // Make stepper invisible
         editBlockVisibility(false);
         // Stop stepping
         isStepping = false;
         // Pick up speed after a stop
         currentStepSpeed = getNewTimeBetweenSteps(currentStepSpeed);
-        print(currentStepSpeed);
     }
 
 
@@ -91,7 +94,6 @@ public class BlockStepper : MonoBehaviour
 
     private void checkForFlip()
     {
-        // TODO: should not flip right on edge should flip a little off screen
         if (currentPosition >= Constants.RIGHT_EDGE_BLOCK_POSITION ||
         currentPosition <= Constants.LEFT_EDGE_BLOCK_POSITION)
         {
@@ -128,13 +130,13 @@ public class BlockStepper : MonoBehaviour
     private float getNewTimeBetweenSteps(float previousTimeBetweenSteps)
     {
         // TODO: lock in this formula for the top speed
-        if (previousTimeBetweenSteps <= 0.05f)
+        if (previousTimeBetweenSteps <= Constants.MIN_TIME_BETWEEN_STEPS)
         {
-            return 0.05f;
+            return Constants.MIN_TIME_BETWEEN_STEPS;
         }
         else
         {
-            return previousTimeBetweenSteps - 0.01f;
+            return previousTimeBetweenSteps - Constants.SPEED_DIFFERENCE_PER_ROW;
         }
     }
 
@@ -148,5 +150,15 @@ public class BlockStepper : MonoBehaviour
     private void transformBlockPosition(GameObject block, float step)
     {
         block.transform.position = block.transform.position + new Vector3(step, 0, 0);
+    }
+
+    private int calculateStepDirection()
+    {
+        int? middle = towerMiddle;
+        if (!middle.HasValue)
+        {
+            middle = 0;
+        }
+        return currentPosition <= middle ? 1 : -1;
     }
 }

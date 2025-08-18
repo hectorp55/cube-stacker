@@ -14,8 +14,14 @@ public class Constants
     public const int LEFT_EDGE_BLOCK_POSITION = RIGHT_EDGE_BLOCK_POSITION * -1;
     // Middle transform.position.x for a block
     public const float STARTING_X_POSITION = 0f;
+    // The amount of rows necessary to climb before you hit top speed
+    public const int ROWS_UNITLL_TOP_SPEED = 50;
+    // Determines the fastest time that can occur between steps
+    public const float MIN_TIME_BETWEEN_STEPS = 0.05f;
     // The starting speed between steps on a new life in seconds
     public const float STARTING_TIME_BETWEEN_STEPS = 0.3f;
+    // The speed up time between rows
+    public const float SPEED_DIFFERENCE_PER_ROW = (STARTING_TIME_BETWEEN_STEPS - 0.05f) / ROWS_UNITLL_TOP_SPEED;
     // Placing pause effect time in seconds
     public const float PLACING_PAUSE_EFFECT = 0.5f;
     // Starting amount of lives. Corresponds to the number of starting blocks. 

@@ -50,7 +50,6 @@ public class BlockDropper : MonoBehaviour
         }
         else
         {
-            // TODO: blink as we fall
             // TODO: play negative sounds effect
             // Notify game manager there was a drop
             gameManager.BlockDropped();
