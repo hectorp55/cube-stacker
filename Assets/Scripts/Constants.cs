@@ -18,6 +18,8 @@ public class Constants
     public const float STARTING_TIME_BETWEEN_STEPS = 0.3f;
     // Placing pause effect time in seconds
     public const float PLACING_PAUSE_EFFECT = 0.5f;
+    // Starting amount of lives. Corresponds to the number of starting blocks. 
+    public const int START_LIVES_COUNT = 3;
 }
 
 public class Scenes

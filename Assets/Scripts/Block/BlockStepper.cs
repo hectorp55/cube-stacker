@@ -41,7 +41,6 @@ public class BlockStepper : MonoBehaviour
 
     public void StopStepping()
     {
-        print("STOP");
         // Make stepper invisible
         editBlockVisibility(false);
         // Stop stepping

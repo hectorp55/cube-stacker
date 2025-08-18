@@ -43,10 +43,8 @@ public class BlockPlacer : MonoBehaviour
     // Places the current block down
     private IEnumerator placeBlock()
     {
-        // Place a block in my spot
-        instantiateBlockInPlace(leftCube);
-        instantiateBlockInPlace(middleCube);
-        instantiateBlockInPlace(rightCube);
+        // Place a block in my spot if the gameobject is active
+        instantiateBlocksIfActive();
 
         // Stop Stepping
         blockController.StopStepping();
@@ -67,6 +65,23 @@ public class BlockPlacer : MonoBehaviour
             blockController.StartStepping();
         }
         // TODO: add particle explosion or like star explosion for feeling good about hitting
+    }
+
+    // Create a block in the place of the given gameobject unless it is currently inactive
+    private void instantiateBlocksIfActive()
+    {
+        if (leftCube.activeSelf)
+        {
+            instantiateBlockInPlace(leftCube);
+        }
+        if (middleCube.activeSelf)
+        {
+            instantiateBlockInPlace(middleCube);
+        }
+        if (rightCube.activeSelf)
+        {
+            instantiateBlockInPlace(rightCube);
+        }
     }
 
     private void instantiateBlockInPlace(GameObject block)

@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton
 {
     public GameObject Blocks;
     public bool IsGameActive { get; private set; } = false;
 
     private BlockController blockController;
-    private int missedBlocksCount = 0;
+    private int remainingLives = Constants.START_LIVES_COUNT;
+    private int blocksDropping = 0;
 
     void Awake()
     {
@@ -30,19 +31,29 @@ public class GameManager : MonoBehaviour
 
     public void BlockMissed()
     {
-        print("MISSED");
         IsGameActive = false;
-        missedBlocksCount += 1;
+        blocksDropping += 1;
+        remainingLives -= 1;
+        // Sets fallen blocks as inactive in controller
+        setInactiveBlocksAfterMiss();
     }
 
     public void BlockDropped()
     {
-        // TODO: calculate whether the game should keep going or end
-        missedBlocksCount -= 1;
-        if (missedBlocksCount <= 0)
+        blocksDropping -= 1;
+        // Make sure no more blocks are still dropping
+        if (blocksDropping <= 0)
         {
-            print("GAMEOVER");
-            gameOver();   
+            // If we still have lives keep playing otherwise gameover
+            if (remainingLives <= 0)
+            {
+                print("GAMEOVER");
+                gameOver();
+            }
+            else
+            {
+                startGame();
+            }
         }
     }
 
@@ -60,5 +71,17 @@ public class GameManager : MonoBehaviour
     private void gameOver()
     {
         SceneManager.LoadScene(Scenes.SCORE_SCENE);
+    }
+
+    private void setInactiveBlocksAfterMiss()
+    {
+        if (remainingLives == 2)
+        {
+            blockController.leftCube.SetActive(false);
+        }
+        else if (remainingLives == 1)
+        {
+            blockController.rightCube.SetActive(false);
+        }
     }
 }

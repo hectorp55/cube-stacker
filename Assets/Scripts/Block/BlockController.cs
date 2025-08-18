@@ -1,17 +1,18 @@
 using UnityEngine;
 
-public class BlockController : MonoBehaviour
+public class BlockController : Singleton
 {
     public GameObject leftCube;
     public GameObject middleCube;
     public GameObject rightCube;
 
-
+    private GameManager gameManager;
     private BlockStepper blockStepper;
     private BlockPlacer blockPlacer;
 
     void Awake()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         blockStepper = GetComponent<BlockStepper>();
         blockPlacer = GetComponent<BlockPlacer>();
 
@@ -39,6 +40,7 @@ public class BlockController : MonoBehaviour
     // Stops the block moving
     public void StopStepping()
     {
+        print("STOP");
         blockStepper.StopStepping();
     }
 
