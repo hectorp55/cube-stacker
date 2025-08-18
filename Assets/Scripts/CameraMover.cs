@@ -5,21 +5,25 @@ public class CameraMover : MonoBehaviour
     public GameObject blockController;
 
     private Vector3 startingPosition;
-    private float yDistanceBetweenCameraAndTower = 0;
+    private float distanceBetweenTowerAndCamera = 0;
 
     // ===========================================================
     // Mono Methods
     // ===========================================================
 
+    void Awake()
+    {
+        startingPosition = transform.position;
+    }
+
     void Update()
     {
         // if blocks are over certain position then my position equal that position - distance at that time.
-        if (blockController.transform.position.y == Constants.Y_POSITION_TO_START_MOVIING)
+        if (blockController.transform.position.y == Constants.Y_POSITION_TO_START_MOVING_CAMERA)
         {
-            startingPosition = transform.position;
-            yDistanceBetweenCameraAndTower = blockController.transform.position.y - startingPosition.y;
+            distanceBetweenTowerAndCamera = blockController.transform.position.y - transform.position.y;
         }
-        if (blockController.transform.position.y > Constants.Y_POSITION_TO_START_MOVIING)
+        if (blockController.transform.position.y > Constants.Y_POSITION_TO_START_MOVING_CAMERA)
         {
             transform.position = calculateMyNewPosition();
         }
@@ -39,7 +43,7 @@ public class CameraMover : MonoBehaviour
     {
         return new Vector3(
             startingPosition.x,
-            blockController.transform.position.y - Constants.DISTANCE_BETWEEN_CAMERA_AND_TOWER,
+            blockController.transform.position.y - distanceBetweenTowerAndCamera,
             startingPosition.z
         );
     }

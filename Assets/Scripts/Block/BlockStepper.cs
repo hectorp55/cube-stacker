@@ -14,6 +14,8 @@ public class BlockStepper : MonoBehaviour
     private GameObject middleCube;
     private GameObject rightCube;
 
+    // TODO: figure out why I speed up on a miss for one cycle
+
     // ===========================================================
     // Public Methods
     // ===========================================================

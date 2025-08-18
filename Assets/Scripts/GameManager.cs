@@ -5,12 +5,16 @@ public class GameManager : Singleton
 {
     public GameObject Blocks;
     public bool IsGameActive { get; private set; } = false;
+    public int Score { get; private set; } = 0;
 
     private BlockController blockController;
     private int remainingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
-    // TODO: display score
+    // TODO: save highscore
+    // TODO: scrolling press start on board
+    // TODO: stats screen
+    // TODO: Record stats
 
     // ===========================================================
     // Mono Methods
@@ -24,11 +28,6 @@ public class GameManager : Singleton
     void Start()
     {
         startGame();
-    }
-
-    void Update()
-    {
-
     }
 
     // ===========================================================
@@ -60,6 +59,11 @@ public class GameManager : Singleton
                 startGame();
             }
         }
+    }
+
+    public void Scored()
+    {
+        Score += 1;
     }
 
 

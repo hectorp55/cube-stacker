@@ -29,9 +29,7 @@ public class Constants
     // The speed between steps on dropping block
     public const float DROPPING_TIME_BETWEEN_STEPS = 0.2f;
     // Y position for the top of tower when the camera should start moving upwards
-    public const float Y_POSITION_TO_START_MOVIING = 4.5f;
-    // Distance to maintain between the camera and the top of tower
-    public const float DISTANCE_BETWEEN_CAMERA_AND_TOWER = -5.5f;
+    public const float Y_POSITION_TO_START_MOVING_CAMERA = 1.5f;
 }
 
 public class Scenes

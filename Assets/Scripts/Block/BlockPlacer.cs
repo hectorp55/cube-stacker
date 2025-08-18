@@ -53,6 +53,9 @@ public class BlockPlacer : MonoBehaviour
     // Places the current block down
     private IEnumerator placeBlock()
     {
+        // Increment score
+        gameManager.Scored();
+
         // Place a block in my spot if the gameobject is active
         instantiateBlocksIfActive();
 
