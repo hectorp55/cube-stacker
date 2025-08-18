@@ -13,6 +13,10 @@ public class BlockPlacer : MonoBehaviour
     private GameObject rightCube;
     private bool isPlacingBlock = false;
 
+    // ===========================================================
+    // Mono Methods
+    // ===========================================================
+
     void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();

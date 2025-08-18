@@ -10,6 +10,12 @@ public class GameManager : Singleton
     private int remainingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
+    // TODO: display score
+
+    // ===========================================================
+    // Mono Methods
+    // ===========================================================
+
     void Awake()
     {
         blockController = Blocks.GetComponent<BlockController>();
