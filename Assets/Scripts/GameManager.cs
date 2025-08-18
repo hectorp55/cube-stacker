@@ -11,10 +11,10 @@ public class GameManager : Singleton
     private int remainingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
-    // TODO: save highscore
-    // TODO: scrolling press start on board
-    // TODO: stats screen
     // TODO: Record stats
+    // TODO: scrolling press start on board
+    // TODO: allow access to the stats screen by button press
+    // TODO: once game starts set menu buttons inactive
 
     // ===========================================================
     // Mono Methods
@@ -22,6 +22,7 @@ public class GameManager : Singleton
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         blockController = Blocks.GetComponent<BlockController>();
     }
 
@@ -79,6 +80,9 @@ public class GameManager : Singleton
 
     private void gameOver()
     {
+        // Try to update the highscore
+        Save.TryUpdateHighScore(Score);
+        // Navigate to retry screen
         SceneManager.LoadScene(Scenes.SCORE_SCENE);
     }
 
