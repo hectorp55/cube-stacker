@@ -15,6 +15,7 @@ public class GameManager : Singleton
     // TODO: Record stats
     // TODO: scrolling press start on board
     // TODO: find a better background dome
+    // TODO: make sure UI elements are responsive
 
     // ===========================================================
     // Mono Methods
