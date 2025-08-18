@@ -40,7 +40,6 @@ public class BlockController : Singleton
     // Stops the block moving
     public void StopStepping()
     {
-        print("STOP");
         blockStepper.StopStepping();
     }
 

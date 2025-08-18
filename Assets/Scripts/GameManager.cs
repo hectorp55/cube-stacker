@@ -47,7 +47,6 @@ public class GameManager : Singleton
             // If we still have lives keep playing otherwise gameover
             if (remainingLives <= 0)
             {
-                print("GAMEOVER");
                 gameOver();
             }
             else

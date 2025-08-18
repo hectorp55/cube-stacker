@@ -26,6 +26,8 @@ public class Constants
     public const float PLACING_PAUSE_EFFECT = 0.5f;
     // Starting amount of lives. Corresponds to the number of starting blocks. 
     public const int START_LIVES_COUNT = 3;
+    // The speed between steps on dropping block
+    public const float DROPPING_TIME_BETWEEN_STEPS = 0.2f;
 }
 
 public class Scenes
