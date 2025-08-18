@@ -19,7 +19,6 @@ public class HangingBlockCheck : MonoBehaviour
     {
         if (!IsBlockUnderneath())
         {
-            print("MISSED");
             // Notify there was a block miss
             gameManager.BlockMissed();
             // Drop the block off the screen   

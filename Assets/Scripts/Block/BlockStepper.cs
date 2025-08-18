@@ -129,7 +129,6 @@ public class BlockStepper : MonoBehaviour
 
     private float getNewTimeBetweenSteps(float previousTimeBetweenSteps)
     {
-        // TODO: lock in this formula for the top speed
         if (previousTimeBetweenSteps <= Constants.MIN_TIME_BETWEEN_STEPS)
         {
             return Constants.MIN_TIME_BETWEEN_STEPS;
