@@ -8,6 +8,10 @@ public class BlockPlacer : MonoBehaviour
     private GameManager gameManager;
     private BlockController blockController;
 
+    private GameObject leftCube;
+    private GameObject middleCube;
+    private GameObject rightCube;
+
     void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -17,6 +21,14 @@ public class BlockPlacer : MonoBehaviour
     // ===========================================================
     // Public Methods
     // ===========================================================
+
+    // Sets the blocks to be moved
+    public void SetBlocks(GameObject leftCube, GameObject middleCube, GameObject rightCube)
+    {
+        this.leftCube = leftCube;
+        this.middleCube = middleCube;
+        this.rightCube = rightCube;
+    }
 
     public void PlaceBlock()
     {
@@ -32,24 +44,39 @@ public class BlockPlacer : MonoBehaviour
     private IEnumerator placeBlock()
     {
         // Place a block in my spot
-        Instantiate(blockPrefab, transform.position, transform.rotation);
+        instantiateBlockInPlace(leftCube);
+        instantiateBlockInPlace(middleCube);
+        instantiateBlockInPlace(rightCube);
 
         // Stop Stepping
         blockController.StopStepping();
 
+        // Move stepping block up
+        moveBlockPositionUp(leftCube);
+        moveBlockPositionUp(middleCube);
+        moveBlockPositionUp(rightCube);
+        moveBlockPositionUp(gameObject);
+
         // Pause for effects of placement
         yield return new WaitForSeconds(Constants.PLACING_PAUSE_EFFECT);
-
-        // Move stepping block up
-        float lift = 1.5f;
-        transform.position = transform.position + new Vector3(0, lift, 0);
 
         // Start Stepping
         // TODO: only continue stepping if the game is still active
         if (gameManager.IsGameActive)
         {
-            blockController.StartStepping();   
+            blockController.StartStepping();
         }
         // TODO: add particle explosion or like star explosion for feeling good about hitting
+    }
+
+    private void instantiateBlockInPlace(GameObject block)
+    {
+        Instantiate(blockPrefab, block.transform.position, block.transform.rotation);
+    }
+
+    private void moveBlockPositionUp(GameObject block)
+    {
+        float lift = Constants.STEP_SIZE;
+        block.transform.position = block.transform.position + new Vector3(0, lift, 0);
     }
 }

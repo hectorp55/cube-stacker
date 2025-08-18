@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3188188234698569241}
   - component: {fileID: -4799968057259321281}
   - component: {fileID: -9051634358952826595}
-  - component: {fileID: -8476942946923292300}
   - component: {fileID: 9165243547023520071}
   m_Layer: 0
   m_Name: Cube_Prefab
@@ -127,18 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90665b917020c4c089ffd7518892abf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HangingBlockCheck
---- !u!114 &-8476942946923292300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890478468484015686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cda8339ed13f34c1ba118f91844be134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BlockController
 --- !u!114 &9165243547023520071
 MonoBehaviour:
   m_ObjectHideFlags: 0

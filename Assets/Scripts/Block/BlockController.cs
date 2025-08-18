@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class BlockController : MonoBehaviour
 {
+    public GameObject leftCube;
+    public GameObject middleCube;
+    public GameObject rightCube;
+
+
     private BlockStepper blockStepper;
     private BlockPlacer blockPlacer;
-    private BlockDropper blockDropper;
 
     void Awake()
     {
         blockStepper = GetComponent<BlockStepper>();
         blockPlacer = GetComponent<BlockPlacer>();
-        blockDropper = GetComponent<BlockDropper>();
+
+        // Set current blocks
+        blockStepper.SetBlocks(leftCube, middleCube, rightCube);
+        blockPlacer.SetBlocks(leftCube, middleCube, rightCube);
     }
 
     // ===========================================================
@@ -33,12 +40,6 @@ public class BlockController : MonoBehaviour
     public void StopStepping()
     {
         blockStepper.StopStepping();
-    }
-
-    // Drops the block off screen
-    public void DropBlock()
-    {
-        blockDropper.DropBlock();
     }
 
     // ===========================================================

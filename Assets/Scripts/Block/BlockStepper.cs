@@ -6,21 +6,24 @@ public class BlockStepper : MonoBehaviour
     private bool isStepping = false;
     private int stepDirection = 1;
     private int currentPosition = Constants.STARTING_BLOCK_POSITION;
-    private SpriteRenderer spriteRenderer;
     private float currentStepSpeed = Constants.STARTING_TIME_BETWEEN_STEPS;
 
-    // ===========================================================
-    // Mono Methods
-    // ===========================================================
 
-    void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    private GameObject leftCube;
+    private GameObject middleCube;
+    private GameObject rightCube;
 
     // ===========================================================
     // Public Methods
     // ===========================================================
+
+    // Sets the blocks to be moved
+    public void SetBlocks(GameObject leftCube, GameObject middleCube, GameObject rightCube)
+    {
+        this.leftCube = leftCube;
+        this.middleCube = middleCube;
+        this.rightCube = rightCube;
+    }
 
     public void StartStepping()
     {
@@ -30,7 +33,7 @@ public class BlockStepper : MonoBehaviour
         // TODO: only restart if game is still active
 
         // Make stepper visible
-        spriteRenderer.enabled = true;
+        editBlockVisibility(true);
         // Start stepping
         isStepping = true;
         StartCoroutine(stepWithDelay());
@@ -38,8 +41,9 @@ public class BlockStepper : MonoBehaviour
 
     public void StopStepping()
     {
+        print("STOP");
         // Make stepper invisible
-        spriteRenderer.enabled = false;
+        editBlockVisibility(false);
         // Stop stepping
         isStepping = false;
         // Pick up speed after a stop
@@ -79,9 +83,11 @@ public class BlockStepper : MonoBehaviour
         // Adjust position in class
         currentPosition += stepDirection;
 
-        // Adjust transform position
+        // Adjust transform position of each block
         float step = Constants.STEP_SIZE * stepDirection;
-        transform.position = transform.position + new Vector3(step, 0, 0);
+        transformBlockPosition(leftCube, step);
+        transformBlockPosition(middleCube, step);
+        transformBlockPosition(rightCube, step);
     }
 
     private void checkForFlip()
@@ -96,10 +102,19 @@ public class BlockStepper : MonoBehaviour
 
     private void moveToRandomStartingPositionOnRow()
     {
+        // Get random starting position
         (float startingXPosition, int startingPosition) = getRandomStartingXPosition();
         currentPosition = startingPosition;
         Vector3 middlePosition = new Vector3(0, transform.position.y, transform.position.z);
-        transform.position = middlePosition + new Vector3(startingXPosition, 0, 0);
+
+        // move left block
+        leftCube.transform.position = middlePosition + new Vector3(startingXPosition - Constants.STEP_SIZE, 0, 0);
+        // move middle block
+        middleCube.transform.position = middlePosition + new Vector3(startingXPosition, 0, 0);
+        // move right cube
+        rightCube.transform.position = middlePosition + new Vector3(startingXPosition + Constants.STEP_SIZE, 0, 0);
+
+        // always move towards the middle on start
         stepDirection = currentPosition <= 0 ? 1 : -1;
     }
 
@@ -120,7 +135,19 @@ public class BlockStepper : MonoBehaviour
         }
         else
         {
-            return previousTimeBetweenSteps - 0.01f;   
+            return previousTimeBetweenSteps - 0.01f;
         }
+    }
+
+    private void editBlockVisibility(bool visibility)
+    {
+        leftCube.GetComponent<SpriteRenderer>().enabled = visibility;
+        middleCube.GetComponent<SpriteRenderer>().enabled = visibility;
+        rightCube.GetComponent<SpriteRenderer>().enabled = visibility;
+    }
+
+    private void transformBlockPosition(GameObject block, float step)
+    {
+        block.transform.position = block.transform.position + new Vector3(step, 0, 0);
     }
 }

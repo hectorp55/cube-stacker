@@ -4,9 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject Blocks;
+    public bool IsGameActive { get; private set; } = false;
 
     private BlockController blockController;
-    public bool IsGameActive { get; private set; } = false;
+    private int missedBlocksCount = 0;
 
     void Awake()
     {
@@ -31,13 +32,18 @@ public class GameManager : MonoBehaviour
     {
         print("MISSED");
         IsGameActive = false;
+        missedBlocksCount += 1;
     }
 
     public void BlockDropped()
     {
         // TODO: calculate whether the game should keep going or end
-        print("GAMEOVER");
-        gameOver();
+        missedBlocksCount -= 1;
+        if (missedBlocksCount <= 0)
+        {
+            print("GAMEOVER");
+            gameOver();   
+        }
     }
 
 

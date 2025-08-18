@@ -7,22 +7,22 @@ public class HangingBlockCheck : MonoBehaviour
     private LayerMask layerMask = Physics.DefaultRaycastLayers;
 
     private GameManager gameManager;
-    private BlockController blockController;
+    private BlockDropper blockDropper;
 
     void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        blockController = GetComponent<BlockController>();
+        blockDropper = GetComponent<BlockDropper>();
     }
 
     void Start()
     {
         if (!IsBlockUnderneath())
         {
-            // Drop the block off the screen
+            // Notify there was a block miss
             gameManager.BlockMissed();
-            blockController.DropBlock();
-            // TODO: hide the placer block
+            // Drop the block off the screen   
+            blockDropper.DropBlock();
         }
     }
 
