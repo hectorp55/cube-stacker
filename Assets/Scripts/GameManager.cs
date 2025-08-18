@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton
 {
     public GameObject Blocks;
+    public GameObject[] actionButtons;
     public bool IsGameActive { get; private set; } = false;
     public int Score { get; private set; } = 0;
 
@@ -13,8 +14,7 @@ public class GameManager : Singleton
 
     // TODO: Record stats
     // TODO: scrolling press start on board
-    // TODO: allow access to the stats screen by button press
-    // TODO: once game starts set menu buttons inactive
+    // TODO: find a better background dome
 
     // ===========================================================
     // Mono Methods
@@ -74,7 +74,11 @@ public class GameManager : Singleton
 
     private void startGame()
     {
+        // set active game state
         IsGameActive = true;
+        // Hide all UI buttons so they dont accidetally get pressed
+        disableUiElements();
+        // start the actual game movement
         blockController.StartStepping();
     }
 
@@ -95,6 +99,14 @@ public class GameManager : Singleton
         else if (remainingLives == 1)
         {
             blockController.rightCube.SetActive(false);
+        }
+    }
+
+    private void disableUiElements()
+    {
+        foreach (GameObject actionButton in actionButtons)
+        {
+            actionButton.SetActive(false);
         }
     }
 }

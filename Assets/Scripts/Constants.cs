@@ -37,4 +37,5 @@ public class Scenes
     public const string MAIN_SCENE = "MainScene";
     public const string MENU_SCENE = "MenuScene";
     public const string SCORE_SCENE = "ScoreScene";
+    public const string STATS_SCENE = "StatsScene";
 }
