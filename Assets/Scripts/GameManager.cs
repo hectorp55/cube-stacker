@@ -12,7 +12,8 @@ public class GameManager : Singleton
     private int remainingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
-    // TODO: scrolling press start on board
+    // TODO: dont start game untill first tap
+    // TODO: hide cube controller untill the game starts
     // TODO: find a better background dome
     // TODO: make sure UI elements are responsive
 
@@ -74,6 +75,8 @@ public class GameManager : Singleton
 
     private void startGame()
     {
+        // Set contoller to active state so its visible
+        blockController.gameObject.SetActive(true);
         // Record stats of this new game
         StatsRecorder.RecordNewGame();
         // set active game state
