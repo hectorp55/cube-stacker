@@ -14,7 +14,6 @@ public class GameManager : Singleton
     private int blocksDropping = 0;
 
     // TODO: stats button not working anymore
-    // TODO: find a better background dome
     // TODO: make it look like we are exploding out of machine
     // TODO: make sure UI elements are responsive
 
