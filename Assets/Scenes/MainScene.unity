@@ -3623,6 +3623,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d94a90c2ded4790a0328cf77037469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TouchInput
+  onTouchEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 355229344}
+        m_TargetAssemblyTypeName: BlockController, Assembly-CSharp
+        m_MethodName: PlaceBlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &358716343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7556,6 +7571,7 @@ GameObject:
   - component: {fileID: 682590035}
   - component: {fileID: 682590036}
   - component: {fileID: 682590037}
+  - component: {fileID: 682590038}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: GameManager
@@ -7591,8 +7607,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   Blocks: {fileID: 355229339}
-  actionButtons:
+  uiElements:
   - {fileID: 563222277}
+  - {fileID: 1681480639}
+  startTouchInput: {fileID: 682590038}
 --- !u!114 &682590036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7618,6 +7636,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5420f13975dd4e2cbfe08d6afdb8604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainActions
+--- !u!114 &682590038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682590033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d94a90c2ded4790a0328cf77037469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchInput
+  onTouchEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 682590035}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &683785013
 GameObject:
   m_ObjectHideFlags: 0

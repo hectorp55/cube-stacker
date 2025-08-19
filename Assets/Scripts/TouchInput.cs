@@ -1,9 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.Events;
 
 public class TouchInput : MonoBehaviour
 {
+    public UnityEvent onTouchEvent;
+
     private BlockController blockController;
+    private GameManager gameManager;
 
     // ===========================================================
     // Mono Methods
@@ -11,6 +15,7 @@ public class TouchInput : MonoBehaviour
 
     void Awake()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         blockController = GetComponent<BlockController>();
     }
 
@@ -38,11 +43,11 @@ public class TouchInput : MonoBehaviour
 
     private void HandleFingerDown(Finger finger)
     {
-        OnTouchDetected();
+        triggerTouchEvent();
     }
 
-    private void OnTouchDetected()
+    private void triggerTouchEvent()
     {
-        blockController.PlaceBlock();
+        onTouchEvent.Invoke();
     }
 }

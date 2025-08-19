@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton
 {
     public GameObject Blocks;
-    public GameObject[] actionButtons;
+    public GameObject[] uiElements;
+    public TouchInput startTouchInput;
     public bool IsGameActive { get; private set; } = false;
     public int Score { get; private set; } = 0;
 
@@ -12,9 +13,9 @@ public class GameManager : Singleton
     private int remainingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
-    // TODO: dont start game untill first tap
-    // TODO: hide cube controller untill the game starts
+    // TODO: stats button not working anymore
     // TODO: find a better background dome
+    // TODO: make it look like we are exploding out of machine
     // TODO: make sure UI elements are responsive
 
     // ===========================================================
@@ -25,11 +26,6 @@ public class GameManager : Singleton
     {
         DontDestroyOnLoad(gameObject);
         blockController = Blocks.GetComponent<BlockController>();
-    }
-
-    void Start()
-    {
-        startGame();
     }
 
     // ===========================================================
@@ -68,6 +64,11 @@ public class GameManager : Singleton
         Score += 1;
     }
 
+    public void StartGame()
+    {
+        startGame();
+    }
+
 
     // ===========================================================
     // Private Methods
@@ -75,14 +76,16 @@ public class GameManager : Singleton
 
     private void startGame()
     {
+        // Remove the start touch listener
+        Destroy(startTouchInput);
         // Set contoller to active state so its visible
         blockController.gameObject.SetActive(true);
         // Record stats of this new game
         StatsRecorder.RecordNewGame();
-        // set active game state
-        IsGameActive = true;
         // Hide all UI buttons so they dont accidetally get pressed
         disableUiElements();
+        // set active game state
+        IsGameActive = true;
         // start the actual game movement
         blockController.StartStepping();
     }
@@ -117,9 +120,10 @@ public class GameManager : Singleton
 
     private void disableUiElements()
     {
-        foreach (GameObject actionButton in actionButtons)
+        foreach (GameObject element in uiElements)
         {
-            actionButton.SetActive(false);
+            element.SetActive(false);
         }
+
     }
 }
