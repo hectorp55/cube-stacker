@@ -58,6 +58,8 @@ public class BlockPlacer : MonoBehaviour
 
         // Place a block in my spot if the gameobject is active
         instantiateBlocksIfActive();
+        // Records stats on this place
+        StatsRecorder.RecordBlockerPlace(leftCube, middleCube, rightCube);
 
         // Stop Stepping
         blockController.StopStepping();

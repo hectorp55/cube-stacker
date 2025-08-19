@@ -12,7 +12,6 @@ public class GameManager : Singleton
     private int remainingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
-    // TODO: Record stats
     // TODO: scrolling press start on board
     // TODO: find a better background dome
     // TODO: make sure UI elements are responsive
@@ -58,7 +57,7 @@ public class GameManager : Singleton
             }
             else
             {
-                startGame();
+                continueGame();
             }
         }
     }
@@ -75,6 +74,8 @@ public class GameManager : Singleton
 
     private void startGame()
     {
+        // Record stats of this new game
+        StatsRecorder.RecordNewGame();
         // set active game state
         IsGameActive = true;
         // Hide all UI buttons so they dont accidetally get pressed
@@ -89,6 +90,14 @@ public class GameManager : Singleton
         Save.TryUpdateHighScore(Score);
         // Navigate to retry screen
         SceneManager.LoadScene(Scenes.SCORE_SCENE);
+    }
+
+    private void continueGame()
+    {
+        // set active game state
+        IsGameActive = true;
+        // start the actual game movement
+        blockController.StartStepping();
     }
 
     private void setInactiveBlocksAfterMiss()

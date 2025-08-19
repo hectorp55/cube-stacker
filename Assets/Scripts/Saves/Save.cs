@@ -34,6 +34,12 @@ public class Save
         return PlayerPrefs.GetInt(property);
     }
 
+    public static void IncrementStat(string property)
+    {
+        int value = GetIntProperty(property);
+        SaveIntProperty(property, value + 1);
+    }
+
     // ===========================================================
     // Private Methods
     // ===========================================================
