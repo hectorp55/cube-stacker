@@ -13,8 +13,10 @@ public class GameManager : Singleton
     private int remainingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
-    // TODO: stats button not working anymore
+    // TODO: stats button not working anymore even on iPhone
     // TODO: make sure UI elements are responsive
+    // TODO: score and button are really different on my actual iPhone, why?
+    // TODO: this is happening with all ui elements
 
     // ===========================================================
     // Mono Methods

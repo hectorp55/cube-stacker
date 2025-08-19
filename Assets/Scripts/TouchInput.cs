@@ -28,8 +28,8 @@ public class TouchInput : MonoBehaviour
         // Enable the Enhanced Touch system
         EnhancedTouchSupport.Enable();
 
+        // TouchSimulation.Enable();
         // Subscribe to touch events
-        TouchSimulation.Enable();
         UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += HandleFingerDown;
     }
 
