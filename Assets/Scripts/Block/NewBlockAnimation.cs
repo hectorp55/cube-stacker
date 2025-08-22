@@ -35,7 +35,7 @@ public class NewBlockAnimation : MonoBehaviour
     {
         if (animator != null)
         {
-            animator.SetTrigger("Placed");
+            animator.SetTrigger(AnimationNames.PLACED);
         }
         else
         {

@@ -99,8 +99,8 @@ public class BlockStepper : MonoBehaviour
 
     private void checkForFlip()
     {
-        if (currentPosition >= Constants.RIGHT_EDGE_BLOCK_POSITION ||
-        currentPosition <= Constants.LEFT_EDGE_BLOCK_POSITION)
+        if (currentPosition > Constants.RIGHT_EDGE_BLOCK_POSITION -1 ||
+        currentPosition < Constants.LEFT_EDGE_BLOCK_POSITION +1)
         {
             stepDirection = stepDirection * -1;
         }
@@ -121,14 +121,16 @@ public class BlockStepper : MonoBehaviour
         rightCube.transform.position = middlePosition + new Vector3(startingXPosition + Constants.STEP_SIZE, 0, 0);
 
         // always move towards the middle on start
-        stepDirection = currentPosition <= 0 ? 1 : -1;
+        int towerPos = towerMiddle ?? 0;
+        stepDirection = currentPosition <= towerPos ? 1 : -1;
     }
 
     private (float startingXPosition, int startingPosition) getRandomStartingXPosition()
     {
-        // Get a random integer between -4 and 4
-        int randomInt = Random.Range(-4, 5); // upper bound is exclusive for ints
+        // Get a random integer between -5 and 5
+        int randomInt = Random.Range(-5, 6); // upper bound is exclusive for ints
 
+        print(randomInt);
         return (Constants.STARTING_X_POSITION + (randomInt * Constants.STEP_SIZE), randomInt);
     }
 
