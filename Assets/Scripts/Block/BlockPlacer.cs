@@ -56,6 +56,7 @@ public class BlockPlacer : MonoBehaviour
         // Increment score
         gameManager.Scored();
 
+        // TODO: add particle explosion or like star explosion for feeling good about hitting
         // Place a block in my spot if the gameobject is active
         instantiateBlocksIfActive();
         // Records stats on this place
@@ -80,7 +81,6 @@ public class BlockPlacer : MonoBehaviour
             blockController.StartStepping();
         }
         isPlacingBlock = false;
-        // TODO: add particle explosion or like star explosion for feeling good about hitting
     }
 
     // Create a block in the place of the given gameobject unless it is currently inactive
