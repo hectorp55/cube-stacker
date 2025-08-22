@@ -15,7 +15,7 @@ public class Constants
     // Middle transform.position.x for a block
     public const float STARTING_X_POSITION = 0f;
     // The amount of rows necessary to climb before you hit top speed
-    public const int ROWS_UNITLL_TOP_SPEED = 50;
+    public const int ROWS_UNITLL_TOP_SPEED = 100;
     // Determines the fastest time that can occur between steps
     public const float MIN_TIME_BETWEEN_STEPS = 0.05f;
     // The starting speed between steps on a new life in seconds
