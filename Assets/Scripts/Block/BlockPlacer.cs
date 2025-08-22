@@ -68,6 +68,7 @@ public class BlockPlacer : MonoBehaviour
         moveBlockPositionUp(leftCube);
         moveBlockPositionUp(middleCube);
         moveBlockPositionUp(rightCube);
+        // controller position too
         moveBlockPositionUp(gameObject);
 
         // Pause for effects of placement

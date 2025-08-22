@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class TouchInput : MonoBehaviour
 {
@@ -19,6 +20,15 @@ public class TouchInput : MonoBehaviour
         blockController = GetComponent<BlockController>();
     }
 
+    void Update()
+    {
+        // Check if space bar is pressed down for debugging touches
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            triggerTouchEvent();
+        }
+    }
+
     // ===========================================================
     // Private Methods
     // ===========================================================
@@ -28,7 +38,6 @@ public class TouchInput : MonoBehaviour
         // Enable the Enhanced Touch system
         EnhancedTouchSupport.Enable();
 
-        // TouchSimulation.Enable();
         // Subscribe to touch events
         UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += HandleFingerDown;
     }
@@ -38,7 +47,6 @@ public class TouchInput : MonoBehaviour
         // Disable the Enhanced Touch system
         UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown -= HandleFingerDown;
         EnhancedTouchSupport.Disable();
-        TouchSimulation.Disable();
     }
 
     private void HandleFingerDown(Finger finger)

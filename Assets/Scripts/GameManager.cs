@@ -15,7 +15,6 @@ public class GameManager : Singleton
 
     // TODO: stats button not working anymore even on iPhone
     // TODO: make score on main scene bigger
-    // TODO: current score color change
 
     // ===========================================================
     // Mono Methods

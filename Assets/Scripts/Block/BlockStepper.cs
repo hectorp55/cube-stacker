@@ -30,18 +30,25 @@ public class BlockStepper : MonoBehaviour
 
     public void StartStepping()
     {
-        // Choose a random starting point for block before starting
-        moveToRandomStartingPositionOnRow();
+        // Cant start stepping if already stepping
+        if (!isStepping)
+        {
+            // mark us stepping
+            isStepping = true;
+            // Choose a random starting point for block before starting
+            moveToRandomStartingPositionOnRow();
 
-        // Make stepper visible
-        editBlockVisibility(true);
-        // Start stepping
-        isStepping = true;
-        StartCoroutine(stepWithDelay());
+            // Make stepper visible
+            editBlockVisibility(true);
+            // Start stepping
+            StartCoroutine(stepWithDelay());
+        }
     }
 
     public void StopStepping()
     {
+        // Stop stepping
+        isStepping = false;
         // First time we stop mark this as the tower middle
         if (!towerMiddle.HasValue)
         {
@@ -49,8 +56,6 @@ public class BlockStepper : MonoBehaviour
         }
         // Make stepper invisible
         editBlockVisibility(false);
-        // Stop stepping
-        isStepping = false;
         // Pick up speed after a stop
         currentStepSpeed = getNewTimeBetweenSteps(currentStepSpeed);
     }
@@ -70,7 +75,7 @@ public class BlockStepper : MonoBehaviour
     {
         doStep();
 
-        // Wait for 2 seconds
+        // Wait for n seconds
         yield return new WaitForSeconds(currentStepSpeed);
 
         if (isStepping)

@@ -40,7 +40,7 @@ public class BlockDropper : MonoBehaviour
     {
         doDrop();
 
-        // Wait for 1 seconds
+        // Wait for n seconds
         yield return new WaitForSeconds(Constants.DROPPING_TIME_BETWEEN_STEPS);
 
         if (!isBlockOnBottom())
