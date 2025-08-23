@@ -99,10 +99,10 @@ public class BlockStepper : MonoBehaviour
 
     private void checkForFlip()
     {
-        if (currentPosition > Constants.RIGHT_EDGE_BLOCK_POSITION -1 ||
-        currentPosition < Constants.LEFT_EDGE_BLOCK_POSITION +1)
-        {
-            stepDirection = stepDirection * -1;
+        if (currentPosition >= Constants.RIGHT_EDGE_BLOCK_POSITION) {
+            stepDirection = -1;
+        } else if (currentPosition <= Constants.LEFT_EDGE_BLOCK_POSITION) {
+            stepDirection = 1;
         }
     }
 
