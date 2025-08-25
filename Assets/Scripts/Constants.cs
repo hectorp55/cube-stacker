@@ -61,6 +61,7 @@ public class Scenes
     public const string MENU_SCENE = "MenuScene";
     public const string SCORE_SCENE = "ScoreScene";
     public const string STATS_SCENE = "StatsScene";
+    public const string SETTINGS_SCENE = "SettingsScene";
 }
 
 public class AnimationNames

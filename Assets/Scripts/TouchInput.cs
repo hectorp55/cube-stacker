@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class TouchInput : MonoBehaviour
@@ -16,7 +17,7 @@ public class TouchInput : MonoBehaviour
 
     void Awake()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager")?.GetComponent<GameManager>();
         blockController = GetComponent<BlockController>();
     }
 
@@ -40,6 +41,8 @@ public class TouchInput : MonoBehaviour
 
         // Subscribe to touch events
         UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += HandleFingerDown;
+
+        TouchSimulation.Enable();
     }
 
     private void OnDisable()
@@ -47,15 +50,35 @@ public class TouchInput : MonoBehaviour
         // Disable the Enhanced Touch system
         UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown -= HandleFingerDown;
         EnhancedTouchSupport.Disable();
+        TouchSimulation.Disable();
     }
 
     private void HandleFingerDown(Finger finger)
     {
-        triggerTouchEvent();
+        // Block touches if UI is being pressed
+        if (IsOverUI(finger.screenPosition))
+        {
+            return;
+        }
+        else
+        {
+            triggerTouchEvent();
+        }
     }
 
     private void triggerTouchEvent()
     {
         onTouchEvent.Invoke();
+    }
+    
+    private bool IsOverUI(Vector2 screenPos)
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = screenPos;
+
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        return results.Count > 0; // true if we hit any UI element
     }
 }

@@ -15,17 +15,25 @@ public class ScoreUpdater : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
+    void Start()
+    {
+        UpdateScoreText(Save.GetHighScore());
+    }
+
     void Update()
     {
-        UpdateScoreText();
+        if (gameManager.IsGameActive)
+        {
+            UpdateScoreText(gameManager.Score);
+        }
     }
 
     // ===========================================================
     // Private Methods
     // ===========================================================
 
-    private void UpdateScoreText()
+    private void UpdateScoreText(int score)
     {
-        scoreText.text = $"{gameManager.Score}";
+        scoreText.text = $"{score}";
     }
 }

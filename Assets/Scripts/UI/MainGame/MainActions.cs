@@ -11,4 +11,9 @@ public class MainActions : MonoBehaviour
     {
         SceneManager.LoadScene(Scenes.STATS_SCENE);
     }
+
+    public void NavigateToSettings()
+    {
+        SceneManager.LoadScene(Scenes.SETTINGS_SCENE);
+    }
 }

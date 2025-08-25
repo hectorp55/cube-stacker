@@ -1,24 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScoreActions : MonoBehaviour
+public class SettingsActions : MonoBehaviour
 {
     // ===========================================================
     // Public Methods
     // ===========================================================
 
-    public void RetryGame()
+    public void NavigateBack()
     {
         SceneManager.LoadScene(Scenes.MAIN_SCENE);
-    }
-
-    public void NavigateToStats()
-    {
-        SceneManager.LoadScene(Scenes.STATS_SCENE);
-    }
-
-    public void NavigateToSettings()
-    {
-        SceneManager.LoadScene(Scenes.SETTINGS_SCENE);
     }
 }

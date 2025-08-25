@@ -5,6 +5,7 @@ public class ScoreTexts : MonoBehaviour
 {
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI medalText; // TODO: make this an image
     private GameManager gameManager;
 
     // ===========================================================
@@ -21,6 +22,7 @@ public class ScoreTexts : MonoBehaviour
     {
         DefineScoreText();
         DefineHighScoreText();
+        DefineMedal();
     }
 
     // ===========================================================
@@ -37,5 +39,34 @@ public class ScoreTexts : MonoBehaviour
         int highScore = Save.GetHighScore();
 
         highScoreText.text = $"Highscore: {highScore}";
+    }
+
+    private void DefineMedal()
+    {
+        // get score and calculate medal
+        string medalType = GetMedalType();
+        medalText.text = medalType;
+    }
+
+    private string GetMedalType()
+    {
+        int score = gameManager?.Score ?? 0;
+
+        if (score > 100)
+        {
+            return "Gold";
+        }
+        else if (score > 70)
+        {
+            return "Silver";
+        }
+        else if (score > 30)
+        {
+            return "Bronze";
+        }
+        else
+        {
+            return "None";
+        }
     }
 }
