@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System.Linq;
 
 public class BlockStepper : MonoBehaviour
 {
@@ -7,7 +9,9 @@ public class BlockStepper : MonoBehaviour
     private int stepDirection = 1;
     private int currentPosition = Constants.STARTING_BLOCK_POSITION;
     private float currentStepSpeed = Constants.STARTING_TIME_BETWEEN_STEPS;
-    private int? towerMiddle = null;
+    private int towerLeft = Constants.STARTING_BLOCK_POSITION - 1;
+    private int towerMiddle = Constants.STARTING_BLOCK_POSITION;
+    private int towerRight = Constants.STARTING_BLOCK_POSITION + 1;
 
 
     private GameObject leftCube;
@@ -47,11 +51,10 @@ public class BlockStepper : MonoBehaviour
     {
         // Stop stepping
         isStepping = false;
-        // First time we stop mark this as the tower middle
-        if (!towerMiddle.HasValue)
-        {
-            towerMiddle = currentPosition;
-        }
+        // mark new tower positions
+        towerLeft = currentPosition - 1;
+        towerMiddle = currentPosition;
+        towerRight = currentPosition + 1;
         // Make stepper invisible
         editBlockVisibility(false);
         // Pick up speed after a stop
@@ -71,10 +74,10 @@ public class BlockStepper : MonoBehaviour
     // Steps the blocks forward with a delay
     private IEnumerator stepWithDelay()
     {
-        doStep();
-
         // Wait for n seconds
         yield return new WaitForSeconds(currentStepSpeed);
+
+        doStep();
 
         if (isStepping)
         {
@@ -121,17 +124,24 @@ public class BlockStepper : MonoBehaviour
         rightCube.transform.position = middlePosition + new Vector3(startingXPosition + Constants.STEP_SIZE, 0, 0);
 
         // always move towards the middle on start
-        int towerPos = towerMiddle ?? 0;
-        stepDirection = currentPosition <= towerPos ? 1 : -1;
+        stepDirection = currentPosition <= towerMiddle ? 1 : -1;
     }
 
     private (float startingXPosition, int startingPosition) getRandomStartingXPosition()
     {
-        // Get a random integer between -5 and 5
-        int randomInt = Random.Range(-5, 6); // upper bound is exclusive for ints
+        // Generate a random number that is not on top of tower
+        HashSet<int> currentActivePositions = new HashSet<int>(Constants.ACTIVE_STARTING_BLOCK_POSITIONS);
+        currentActivePositions.Remove(towerLeft - 1);
+        currentActivePositions.Remove(towerLeft);
+        currentActivePositions.Remove(towerMiddle);
+        currentActivePositions.Remove(towerRight);
+        currentActivePositions.Remove(towerRight + 1);
 
-        print(randomInt);
-        return (Constants.STARTING_X_POSITION + (randomInt * Constants.STEP_SIZE), randomInt);
+        List<int> activePositions = currentActivePositions.ToList();
+        int randomIndex = Random.Range(0, activePositions.Count);
+        int randomElement = activePositions[randomIndex];
+
+        return (Constants.STARTING_X_POSITION + (randomElement * Constants.STEP_SIZE), randomElement);
     }
 
     private float getNewTimeBetweenSteps(float previousTimeBetweenSteps)

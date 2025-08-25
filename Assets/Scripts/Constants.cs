@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Constants
@@ -43,6 +44,15 @@ public class Constants
 
     // Y position for the top of tower when the camera should start moving upwards
     public const float Y_POSITION_TO_START_MOVING_CAMERA = 1.5f;
+
+    // List of starting active positions for blocks
+    // public readonly List<int> ACTIVE_STARTING_BLOCK_POSITIONS = new List<int> { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };
+    public static readonly IEnumerable<int> ACTIVE_STARTING_BLOCK_POSITIONS = new HashSet<int>
+    { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };
+
+    // public static readonly Dictionary<int, int> ACTIVE_STARTING_BLOCK_POSITIONS = new Dictionary<int, int>
+    // {{ -5, true }, { -4, true }, { -3, true }, { -2, true }, { -1, true }, { 0, true },
+    // { 5, true }, { 4, true }, { 3, true }, { 2, true }, { 1, true },};
 }
 
 public class Scenes
