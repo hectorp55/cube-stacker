@@ -4,17 +4,12 @@ using UnityEngine;
 public class MessageScroller : MonoBehaviour
 {
     private const float OFF_SCREEN_HEIGHT_Y = 84f;
-    private Vector3 startingPosition;
+    private Vector3 resetPosition = new Vector3(0f, -22.5f, 0f);
     private bool isMoving = true;
 
     // ===========================================================
     // Mono Methods
     // ===========================================================
-
-    void Awake()
-    {
-        startingPosition = transform.position;
-    }
 
     void Start()
     {
@@ -63,7 +58,7 @@ public class MessageScroller : MonoBehaviour
 
     private void restartMessage()
     {
-        transform.position = startingPosition;
         // Go back to starting position
+        transform.position = resetPosition;
     }
 }
