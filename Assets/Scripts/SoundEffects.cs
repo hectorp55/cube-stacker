@@ -5,10 +5,8 @@ public class SoundEffects : Singleton
     public AudioClip placingSoundEffect;
     public AudioSource audioSource;
 
-    [Tooltip("Minimum pitch multiplier")]
-    public float minPitch = 0.9f;
-    [Tooltip("Maximum pitch multiplier")]
-    public float maxPitch = 1.1f;
+    private float minPitch = 0.9f;
+    private float maxPitch = 1.1f;
 
     // ===========================================================
     // Public Methods
