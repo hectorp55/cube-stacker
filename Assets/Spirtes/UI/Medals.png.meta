@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bf13a78b233284442ad4334604912201
+guid: 472195990bd19427e8ade4bce96e5ded
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Adobe Express - file_0
+      name: Medals_0
       rect:
         serializedVersion: 2
-        x: 203
-        y: 1490
-        width: 358
-        height: 355
+        x: 390
+        y: 1780
+        width: 342
+        height: 344
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98b03034fcb9a42fcb9ec31ad4667ad7
-      internalID: 940390971
+      spriteID: b9aa0aa2a0ccc4c2ab7b2fd07ed14665
+      internalID: -1532324344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adobe Express - file_1
+      name: Medals_1
       rect:
         serializedVersion: 2
-        x: 838
-        y: 1472
-        width: 374
-        height: 387
+        x: 399
+        y: 1217
+        width: 333
+        height: 340
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7d93717fd7214a97b40618d3b9951f9
-      internalID: -1392883306
+      spriteID: 0f3be0282d2004e1b80b8af939f611d4
+      internalID: -1340075218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adobe Express - file_2
+      name: Medals_2
       rect:
         serializedVersion: 2
-        x: 196
-        y: 847
-        width: 363
-        height: 350
+        x: 394
+        y: 653
+        width: 338
+        height: 337
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,74 +182,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09d4163a19c67482cb6c41aa69967335
-      internalID: -5197013
+      spriteID: dd5ed249485c0417683beabb65574185
+      internalID: 1241430597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Adobe Express - file_3
+      name: Medals_3
       rect:
         serializedVersion: 2
-        x: 837
-        y: 820
-        width: 377
-        height: 384
+        x: 393
+        y: 114
+        width: 336
+        height: 334
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4f7116144670419f885fc0005ef6714
-      internalID: 1243648084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Adobe Express - file_4
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 218
-        width: 357
-        height: 357
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24d4c329c6ad84654a1724220aa7b961
-      internalID: 682312690
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Adobe Express - file_5
-      rect:
-        serializedVersion: 2
-        x: 859
-        y: 205
-        width: 375
-        height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffabdbde14f1f498093aab0489021d8d
-      internalID: -1831002934
+      spriteID: 7d104b80412e248299f1878e401001b1
+      internalID: -1353528730
       vertices: []
       indices: 
       edges: []
@@ -258,7 +214,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9c3b661cebd694c8183e0bd8e62f690d
+    spriteID: 00891f2752b94483c974e8aeb6f6f996
     internalID: 0
     vertices: []
     indices: 
@@ -268,12 +224,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Adobe Express - file_0: 940390971
-      Adobe Express - file_1: -1392883306
-      Adobe Express - file_2: -5197013
-      Adobe Express - file_3: 1243648084
-      Adobe Express - file_4: 682312690
-      Adobe Express - file_5: -1831002934
+      Medals_0: -1532324344
+      Medals_1: -1340075218
+      Medals_2: 1241430597
+      Medals_3: -1353528730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
