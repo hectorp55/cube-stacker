@@ -56,7 +56,8 @@ public class BlockPlacer : MonoBehaviour
         // Increment score
         gameManager.Scored();
 
-        // TODO: add particle explosion or like star explosion for feeling good about hitting
+        // Play sound effect
+        gameManager.SoundEffectsPlayer.PlayPlaceSound();
         // Place a block in my spot if the gameobject is active
         instantiateBlocksIfActive();
         // Records stats on this place

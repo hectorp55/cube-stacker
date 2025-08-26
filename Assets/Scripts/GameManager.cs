@@ -8,6 +8,7 @@ public class GameManager : Singleton
     public TouchInput startTouchInput;
     public bool IsGameActive { get; private set; } = false;
     public int Score { get; private set; } = 0;
+    public SoundEffects SoundEffectsPlayer { get; private set; }
 
     private BlockController blockController;
     private int remainingLives = Constants.START_LIVES_COUNT;
@@ -24,6 +25,7 @@ public class GameManager : Singleton
     {
         DontDestroyOnLoad(gameObject);
         blockController = Blocks.GetComponent<BlockController>();
+        SoundEffectsPlayer = GetComponent<SoundEffects>();
     }
 
     // ===========================================================
