@@ -5,6 +5,7 @@ public class BlockDropper : MonoBehaviour
 {
     private GameManager gameManager;
     private HangingBlockCheck hangingBlockCheck;
+    private BlockAnimator blockAnimator;
 
     // ===========================================================
     // Mono Methods
@@ -14,6 +15,7 @@ public class BlockDropper : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         hangingBlockCheck = GetComponent<HangingBlockCheck>();
+        blockAnimator = GetComponent<BlockAnimator>();
     }
 
     // ===========================================================
@@ -51,6 +53,10 @@ public class BlockDropper : MonoBehaviour
         else
         {
             // TODO: play negative sounds effect
+            // Play destroy animation
+            blockAnimator.PlayDestroyAnimation();
+            // Wait for one more cycle at the bottom for effect
+            yield return new WaitForSeconds(Constants.BOTTOM_SITTING_TIME);
             // Notify game manager there was a drop
             gameManager.BlockDropped();
             // Destroy the block

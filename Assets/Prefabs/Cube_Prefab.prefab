@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9165243547023520071}
   - component: {fileID: 842981307963753155}
   - component: {fileID: -3397683393038499692}
+  - component: {fileID: 6706819769196927401}
   m_Layer: 0
   m_Name: Cube_Prefab
   m_TagString: Untagged
@@ -174,3 +175,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2d3b74b946f449595a0b235ae56146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewBlockAnimation
+--- !u!114 &6706819769196927401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890478468484015686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac497872bf9c4a9997bac0bec69c5b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlockAnimator

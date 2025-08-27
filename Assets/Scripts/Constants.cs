@@ -40,7 +40,10 @@ public class Constants
     public const int START_LIVES_COUNT = 3;
 
     // The speed between steps on dropping block
-    public const float DROPPING_TIME_BETWEEN_STEPS = 0.2f;
+    public const float DROPPING_TIME_BETWEEN_STEPS = 0.3f;
+
+    // The time to wait after the block falls to the ground. About the length of the destroy animation.
+    public const float BOTTOM_SITTING_TIME = 0.3333f * 3; // animation take 1/3 second and I want it to happen 3 times
 
     // Y position for the top of tower when the camera should start moving upwards
     public const float Y_POSITION_TO_START_MOVING_CAMERA = 1.5f;
@@ -67,4 +70,5 @@ public class Scenes
 public class AnimationNames
 {
     public const string PLACED = "Placed";
+    public const string DESTROYED = "Destroyed";
 }

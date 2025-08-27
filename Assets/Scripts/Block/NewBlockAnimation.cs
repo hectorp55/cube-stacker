@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class NewBlockAnimation : MonoBehaviour
 {
-    // Reference to the Animator component
-    private Animator animator;
     private HangingBlockCheck hangingBlockCheck;
-
+    private BlockAnimator blockAnimator;
 
     // ===========================================================
     // Mono Methods
@@ -13,8 +11,8 @@ public class NewBlockAnimation : MonoBehaviour
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
         hangingBlockCheck = GetComponent<HangingBlockCheck>();
+        blockAnimator = GetComponent<BlockAnimator>();
     }
 
     void Start()
@@ -22,24 +20,8 @@ public class NewBlockAnimation : MonoBehaviour
         // if block was placed well play animation
         if (hangingBlockCheck.IsBlockUnderneath())
         {
-            playStartUpAnimation();
+            blockAnimator.PlayStartUpAnimation();
         }
     }
-
-    // ===========================================================
-    // Private Methods
-    // ===========================================================
-
-    // Method you can call to play the animation
-    public void playStartUpAnimation()
-    {
-        if (animator != null)
-        {
-            animator.SetTrigger(AnimationNames.PLACED);
-        }
-        else
-        {
-            Debug.LogWarning("Animator component not found on " + gameObject.name);
-        }
-    }
+    
 }
