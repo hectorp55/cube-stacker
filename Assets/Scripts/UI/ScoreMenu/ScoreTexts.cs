@@ -48,7 +48,7 @@ public class ScoreTexts : MonoBehaviour
     private void DefineMedal()
     {
         // get score and calculate medal
-        int score = gameManager?.Score ?? 0;
+        int score = gameManager?.Score ?? 50;
 
         if (score > 100)
         {
