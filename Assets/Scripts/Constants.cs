@@ -25,13 +25,13 @@ public class Constants
     public const int ROWS_UNITLL_TOP_SPEED = 100;
 
     // Determines the fastest time that can occur between steps
-    public const float MIN_TIME_BETWEEN_STEPS = 0.05f;
+    public const float MIN_TIME_BETWEEN_STEPS = 0.1f;
 
     // The starting speed between steps on a new life in seconds
     public const float STARTING_TIME_BETWEEN_STEPS = 0.3f;
 
     // The speed up time between rows
-    public const float SPEED_DIFFERENCE_PER_ROW = (STARTING_TIME_BETWEEN_STEPS - 0.05f) / ROWS_UNITLL_TOP_SPEED;
+    public const float SPEED_DIFFERENCE_PER_ROW = (STARTING_TIME_BETWEEN_STEPS - MIN_TIME_BETWEEN_STEPS) / ROWS_UNITLL_TOP_SPEED;
 
     // Placing pause effect time in seconds
     public const float PLACING_PAUSE_EFFECT = 0.5f;

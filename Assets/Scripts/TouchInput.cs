@@ -8,6 +8,9 @@ public class TouchInput : MonoBehaviour
 {
     public UnityEvent onTouchEvent;
 
+    private bool isTouchActive = false;
+    private float touchBufferTime = 0.25f;
+    private float timer = 0f;
     private BlockController blockController;
     private GameManager gameManager;
 
@@ -23,10 +26,15 @@ public class TouchInput : MonoBehaviour
 
     void Update()
     {
-        // Check if space bar is pressed down for debugging touches
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        // Give the touches a small buffer before working
+        if (timer >= touchBufferTime)
         {
-            triggerTouchEvent();
+            isTouchActive = true;
+        }
+        else
+        {
+            // Add the time since the last frame
+            timer += Time.deltaTime;
         }
     }
 
@@ -56,7 +64,7 @@ public class TouchInput : MonoBehaviour
     private void HandleFingerDown(Finger finger)
     {
         // Block touches if UI is being pressed
-        if (IsOverUI(finger.screenPosition))
+        if (IsOverUI(finger.screenPosition) || !isTouchActive)
         {
             return;
         }
