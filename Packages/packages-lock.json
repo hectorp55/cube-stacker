@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.apple.unityplugin.core": {
+      "version": "file:/Users/hpuga/Code/unityplugins-main/Build/com.apple.unityplugin.core-3.1.8.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {}
+    },
+    "com.apple.unityplugin.gamekit": {
+      "version": "file:/Users/hpuga/Code/unityplugins-main/Build/com.apple.unityplugin.gamekit-3.0.2.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.apple.unityplugin.core": "3.1.8"
+      }
+    },
     "com.nobi.roundedcorners": {
       "version": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
       "depth": 0,
