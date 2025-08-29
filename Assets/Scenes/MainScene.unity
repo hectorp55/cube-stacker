@@ -3327,6 +3327,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3467,6 +3468,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMover
   blockController: {fileID: 355229339}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f469dba71e64b429ee9327b86be1cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StarCreator
+  startPrefab: {fileID: 648613103256219854, guid: 2ecd3c1010d5a4e9b8401f4693fce364, type: 3}
 --- !u!1001 &333448463
 PrefabInstance:
   m_ObjectHideFlags: 0
