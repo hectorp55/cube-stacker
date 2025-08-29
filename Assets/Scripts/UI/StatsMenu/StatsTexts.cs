@@ -10,6 +10,7 @@ public class StatsTexts : MonoBehaviour
     public TextMeshProUGUI gamesPlayedText;
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI averageScoreText;
+    public TextMeshProUGUI shootingStarsSeenText;
 
     // TODO: return button to main menu
 
@@ -23,6 +24,7 @@ public class StatsTexts : MonoBehaviour
         DefineGamePlayedText();
         DefineHighScoreText();
         DefineAverageScoreText();
+        DefineShootingStarText();
     }
 
     // ===========================================================
@@ -63,5 +65,12 @@ public class StatsTexts : MonoBehaviour
         int averageScore = blocksPlaced / gamesPlayed;
 
         averageScoreText.text = $"{averageScore}";
+    }
+
+    private void DefineShootingStarText()
+    {
+        int shootingStarsSeen = Save.GetIntProperty(SaveProperties.ShootingStarsSeen);
+
+        shootingStarsSeenText.text = $"{shootingStarsSeen}";
     }
 }

@@ -4,8 +4,8 @@ public class StarCreator : MonoBehaviour
 {
     public GameObject startPrefab;
 
-    private float minSpawnInterval = 1f;
-    private float maxSpawnInterval = 3f;
+    private float minSpawnInterval = 10f;
+    private float maxSpawnInterval = 30f;
 
     private float minYSpawnPosition = -15f;
     private float maxYSpawnPosition = 15f;
@@ -21,15 +21,20 @@ public class StarCreator : MonoBehaviour
 
     void Start()
     {
-        ScheduleNextSpawn();
+        scheduleNextSpawn();
     }
 
     void Update()
     {
         if (Time.time >= nextSpawnTime)
         {
-            SpawnPrefab();
-            ScheduleNextSpawn();
+            if (isShootingStarGenerated())
+            {
+                spawnPrefab();
+                // Count stat of stars
+                StatsRecorder.RecordShootingStarSeen();
+            }
+            scheduleNextSpawn();
         }
     }
 
@@ -37,13 +42,13 @@ public class StarCreator : MonoBehaviour
     // Private Methods
     // ===========================================================
 
-    void ScheduleNextSpawn()
+    private void scheduleNextSpawn()
     {
         // Determine the next spawn time randomly within the interval
         nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
     }
 
-    void SpawnPrefab()
+    private void spawnPrefab()
     {
         // Random Y position
         float ySpawnPosition = Random.Range(minYSpawnPosition, maxYSpawnPosition);
@@ -55,5 +60,15 @@ public class StarCreator : MonoBehaviour
         GameObject newStar = Instantiate(startPrefab, transform);
         // Adjust location relative to parent
         newStar.transform.localPosition = spawnPosition;
+        newStar.transform.rotation = Quaternion.identity;
+    }
+
+    // Only want shooting star to be generated 5% of the time. Want them to be rare.
+    private bool isShootingStarGenerated() {
+        // Clamp percent to valid range
+        float percent = Mathf.Clamp(Constants.PERCENTAGE_CHANCE_OF_SHOOTING_STAR, 0f, 100f);
+
+        float roll = Random.value * 100f; // Random between 0 and 100
+        return roll < percent;
     }
 }

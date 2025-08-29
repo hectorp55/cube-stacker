@@ -20,6 +20,12 @@ public class StatsRecorder
         Save.IncrementStat(SaveProperties.GamesPlayed);
     }
 
+    public static void RecordShootingStarSeen()
+    {
+        // Increment shooting star stat
+        Save.IncrementStat(SaveProperties.ShootingStarsSeen);
+    }
+
     // ===========================================================
     // Private Methods
     // ===========================================================

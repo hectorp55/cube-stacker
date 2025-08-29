@@ -8,6 +8,7 @@ public class SaveProperties
     public const string DoubleBlocksPlaced = "DoubleBlocksPlaced";
     public const string SingleBlocksPlaced = "SingleBlocksPlaced";
     public const string GamesPlayed = "GamesPlayed";
+    public const string ShootingStarsSeen = "ShootingStarsSeen";
 }
 
 public class Save
