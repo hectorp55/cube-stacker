@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 9051474937055987693}
   - component: {fileID: 3188188234698569241}
   - component: {fileID: -4799968057259321281}
+  - component: {fileID: 842981307963753155}
   - component: {fileID: -9051634358952826595}
   - component: {fileID: 9165243547023520071}
-  - component: {fileID: 842981307963753155}
   - component: {fileID: -3397683393038499692}
   - component: {fileID: 6706819769196927401}
+  - component: {fileID: 3796363620141108640}
   m_Layer: 0
   m_Name: Cube_Prefab
   m_TagString: Untagged
@@ -117,6 +118,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.428, y: 1.428, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &842981307963753155
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890478468484015686}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c7df59753cc84f03bff1886dc6437fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-9051634358952826595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,28 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c65b87ad598ce4d849b3ad0e16aebd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockDropper
---- !u!95 &842981307963753155
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890478468484015686}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c7df59753cc84f03bff1886dc6437fc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-3397683393038499692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +188,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac497872bf9c4a9997bac0bec69c5b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockAnimator
+--- !u!114 &3796363620141108640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890478468484015686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001713f5fbee45ef9e8d0b005291686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlockDestroyer
+  target: {fileID: 0}
