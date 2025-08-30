@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using Apple.GameKit;
+using Apple.GameKit.Leaderboards;
 using UnityEngine.UI;
 using System.Linq;
 
 public class GameCenterManager : MonoBehaviour
 {
-    public GameObject GameCenterProfileIcon;
-    public Image profilePhotoImage;
-
     private string Signature;
     private string TeamPlayerID;
     private string Salt;
@@ -23,6 +21,7 @@ public class GameCenterManager : MonoBehaviour
     void Start()
     {
         // Login();
+        DisplayGameCenterAccessPoint();
     }
 
     // ===========================================================
@@ -35,11 +34,11 @@ public class GameCenterManager : MonoBehaviour
         var context = 0;
 
         // Filter leadboards by params string[] identifiers
-        // var leaderboards = await GKLeaderboard.LoadLeaderboards(leaderboardId);
-        // var leaderboard = leaderboards.FirstOrDefault();
+        var leaderboards = await GKLeaderboard.LoadLeaderboards(leaderboardId);
+        var leaderboard = leaderboards.FirstOrDefault();
 
-        // // Submit
-        // await leaderboard.SubmitScore(score, context, GKLocalPlayer.Local);
+        // Submit
+        await leaderboard.SubmitScore(score, context, GKLocalPlayer.Local);
     }
 
     // Call this when a player completes an achievement
@@ -56,7 +55,7 @@ public class GameCenterManager : MonoBehaviour
         // If null, initialize it
         achievement ??= GKAchievement.Init(achievementId);
 
-        if(!achievement.IsCompleted) {
+        if (!achievement.IsCompleted) {
             achievement.PercentComplete = progressPercentage;
             achievement.ShowCompletionBanner = showCompletionBanner;
 
@@ -68,6 +67,14 @@ public class GameCenterManager : MonoBehaviour
     // Private Methods
     // ===========================================================
 
+    private void DisplayGameCenterAccessPoint()
+    {
+        // Show the Access Point
+        GKAccessPoint.Shared.Location = GKAccessPoint.GKAccessPointLocation.TopLeading;
+        GKAccessPoint.Shared.ShowHighlights = true; 
+        GKAccessPoint.Shared.IsActive = true;
+    }
+
     private async void Login()
     {
         if (!GKLocalPlayer.Local.IsAuthenticated)
@@ -75,27 +82,6 @@ public class GameCenterManager : MonoBehaviour
             // Perform the authentication.
             var player = await GKLocalPlayer.Authenticate();
             Debug.Log($"GameKit Authentication: player {player}");
-
-            // Grab the display name.
-            var localPlayer = GKLocalPlayer.Local;
-            Debug.Log($"Local Player: {localPlayer.DisplayName}");
-
-            // Fetch the items.
-            var fetchItemsResponse = await GKLocalPlayer.Local.FetchItems();
-
-            Signature = Convert.ToBase64String(fetchItemsResponse.GetSignature());
-            TeamPlayerID = localPlayer.TeamPlayerId;
-            Debug.Log($"Team Player ID: {TeamPlayerID}");
-            Salt = Convert.ToBase64String(fetchItemsResponse.GetSalt());
-            PublicKeyUrl = fetchItemsResponse.PublicKeyUrl;
-            Timestamp = fetchItemsResponse.Timestamp.ToString();
-
-            // TODO: load player photo
-            // var profilePhoto = await player.LoadPhoto(GKPlayer.PhotoSize(100));
-            // if (profilePhoto)
-            // {
-            //     profilePhotoImage.Image = profilePhoto;
-            // }
         }
         else
         {

@@ -18152,8 +18152,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1851147571
-  m_fontColor: {r: 0.2, g: 0.27058825, b: 0.3372549, a: 0.43137255}
+    rgba: 3109438771
+  m_fontColor: {r: 0.2, g: 0.27058825, b: 0.3372549, a: 0.7254902}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -25017,8 +25017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdf8382ad8894857ad79d5f147d21d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameCenterManager
-  GameCenterProfileIcon: {fileID: 1134383999}
-  profilePhotoImage: {fileID: 453543169}
 --- !u!1001 &2008107453
 PrefabInstance:
   m_ObjectHideFlags: 0
