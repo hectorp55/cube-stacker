@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class FadeInObject : MonoBehaviour
 {
-    public float fadeDuration = 0.1f; // How long the fade takes
+    private float fadeDuration = 0.5f; // How long the fade takes
     private Image uiImage;
 
 
