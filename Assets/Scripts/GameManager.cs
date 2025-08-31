@@ -14,9 +14,6 @@ public class GameManager : Singleton
     private int remainingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
-    // TODO: stats button not working anymore even on iPhone
-    // TODO: make score on main scene bigger
-
     // ===========================================================
     // Mono Methods
     // ===========================================================

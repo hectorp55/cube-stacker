@@ -13,32 +13,36 @@ public class SetAudioSettings : MonoBehaviour
 
     void Start()
     {
-        DefineMasterVolume();
-        DefineSoundFxVolume();
-        DefineMusicVolume();
+        DefineMasterVolume(Save.GetIntProperty(SaveProperties.MasterVolume));
+        DefineSoundFxVolume(Save.GetIntProperty(SaveProperties.SoundFxVolume));
+        DefineMusicVolume(Save.GetIntProperty(SaveProperties.MusicVolume));
+    }
+
+    // ===========================================================
+    // Public Methods
+    // ===========================================================   
+
+    public void DefineMasterVolume(int value)
+    {
+        globalVolume.weight = getVolume(value);
+    }
+
+    public void DefineSoundFxVolume(int value)
+    {
+        fxSource.volume = getVolume(value);
+    }
+
+    public void DefineMusicVolume(int value)
+    {
+        musicSource.volume = getVolume(value);
     }
 
     // ===========================================================
     // Private Methods
-    // ===========================================================
-
-    void DefineMasterVolume()
-    {
-        globalVolume.weight = getVolume(Save.GetIntProperty(SaveProperties.MasterVolume));
-    }
-
-    void DefineSoundFxVolume()
-    {
-        fxSource.volume = getVolume(Save.GetIntProperty(SaveProperties.SoundFxVolume));
-    }
-
-    void DefineMusicVolume()
-    {
-        musicSource.volume = getVolume(Save.GetIntProperty(SaveProperties.MusicVolume));
-    }
+    // ===========================================================   
 
     private float getVolume(int volumeLevel)
     {
         return volumeLevel / 100f;
-    }
+    } 
 }

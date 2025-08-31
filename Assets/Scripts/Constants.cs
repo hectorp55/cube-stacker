@@ -57,6 +57,11 @@ public class Constants
 
 }
 
+public class Tags
+{
+    public const string MUSIC_BOX = "MusicBox";
+}
+
 public class Scenes
 {
     public const string MAIN_SCENE = "MainScene";

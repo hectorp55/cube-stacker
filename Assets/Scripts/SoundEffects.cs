@@ -3,10 +3,23 @@ using UnityEngine;
 public class SoundEffects : Singleton
 {
     public AudioClip placingSoundEffect;
-    public AudioSource audioSource;
+    private AudioSource audioSource;
 
     private float minPitch = 0.9f;
     private float maxPitch = 1.1f;
+
+    // ===========================================================
+    // Mono Methods
+    // ===========================================================
+
+    void Awake()
+    {
+        GameObject musicBox = GameObject.FindGameObjectWithTag(Tags.MUSIC_BOX);
+        if (musicBox)
+        {
+            audioSource = musicBox.GetComponent<SetAudioSettings>().fxSource;
+        }
+    }
 
     // ===========================================================
     // Public Methods
