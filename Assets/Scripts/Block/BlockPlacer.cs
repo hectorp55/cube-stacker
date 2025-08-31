@@ -4,7 +4,9 @@ using UnityEngine;
 public class BlockPlacer : MonoBehaviour
 {
     public GameObject blockPrefab;
+    public GameObject bgIcon;
 
+    private BackgroundIconMoving bgIconMover;
     private GameManager gameManager;
     private BlockController blockController;
 
@@ -21,6 +23,7 @@ public class BlockPlacer : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         blockController = GetComponent<BlockController>();
+        bgIconMover = bgIcon.GetComponent<BackgroundIconMoving>();
     }
 
     // ===========================================================
@@ -72,6 +75,8 @@ public class BlockPlacer : MonoBehaviour
         moveBlockPositionUp(rightCube);
         // controller position too
         moveBlockPositionUp(gameObject);
+        // move background icons up
+        bgIconMover.MoveBackgroundIconsUp();
 
         // Pause for effects of placement
         yield return new WaitForSeconds(Constants.PLACING_PAUSE_EFFECT);

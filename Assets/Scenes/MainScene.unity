@@ -2343,7 +2343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 250
+  PositionLevel: 150
 --- !u!1001 &164934546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2968,7 +2968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 30
+  PositionLevel: 10
 --- !u!1001 &298716939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3926,6 +3926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockPlacer
   blockPrefab: {fileID: 4890478468484015686, guid: 1436e9cd79e124ea9b5ee3c6823e5d53, type: 3}
+  bgIcon: {fileID: 1797287312}
 --- !u!114 &355229343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7018,7 +7019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 370
+  PositionLevel: 230
 --- !u!1001 &570744851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10561,7 +10562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 490
+  PositionLevel: 290
 --- !u!4 &818351436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4741566781863356071, guid: f6918958b85d24b0783f5ea1c248fd5b, type: 3}
@@ -11937,7 +11938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 520
+  PositionLevel: 310
 --- !u!4 &942021709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4741566781863356071, guid: f6918958b85d24b0783f5ea1c248fd5b, type: 3}
@@ -13369,7 +13370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 340
+  PositionLevel: 210
 --- !u!1001 &1060169427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13535,7 +13536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 150
+  PositionLevel: 90
 --- !u!1001 &1071828129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14891,7 +14892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 90
+  PositionLevel: 50
 --- !u!1001 &1160626199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15553,7 +15554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 450
+  PositionLevel: 270
 --- !u!1 &1192266456
 GameObject:
   m_ObjectHideFlags: 0
@@ -18088,7 +18089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 60
+  PositionLevel: 30
 --- !u!1001 &1450984608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18504,7 +18505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 280
+  PositionLevel: 170
 --- !u!1001 &1485617523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19136,7 +19137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 120
+  PositionLevel: 70
 --- !u!1001 &1536547014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20501,7 +20502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 220
+  PositionLevel: 130
 --- !u!1001 &1628238736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22350,7 +22351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 410
+  PositionLevel: 250
 --- !u!1001 &1785903385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22573,8 +22574,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1797287313}
+  - component: {fileID: 1797287314}
   m_Layer: 0
-  m_Name: Background Objects
+  m_Name: Background Icons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22611,6 +22613,18 @@ Transform:
   - {fileID: 940997714}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1797287314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797287312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3078c9b0fe1664aa3bd6acc11fb21a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundIconMoving
 --- !u!1001 &1806281779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24744,7 +24758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 180
+  PositionLevel: 110
 --- !u!1001 &1975817343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25537,7 +25551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 310
+  PositionLevel: 190
 --- !u!1001 &2053185678
 PrefabInstance:
   m_ObjectHideFlags: 0
