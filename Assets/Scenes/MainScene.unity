@@ -2968,7 +2968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 30
+  PositionLevel: 35
 --- !u!1001 &298716939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8488,7 +8488,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffects
   placingSoundEffect: {fileID: 8300000, guid: 2e0b4f167508243ab87d818fc237df8a, type: 3}
-  audioSource: {fileID: 325789954}
 --- !u!4 &683785014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4741566781863356071, guid: f6918958b85d24b0783f5ea1c248fd5b, type: 3}
