@@ -19,7 +19,9 @@ public class BackgroundImagePlacer : MonoBehaviour
     // ===========================================================
 
     private Vector3 getStartingPosition() {
-        float assignedHeight = Constants.STEP_SIZE * PositionLevel + bottomOfScreen;
+        // starting position - (step to get to you + half step)
+        float startingHeight = Constants.STEP_SIZE * PositionLevel + bottomOfScreen;
+        float assignedHeight = startingHeight - (PositionLevel * Constants.STEP_SIZE / 2);
         return new Vector3(transform.position.x, assignedHeight, transform.position.z);
     }
 }
