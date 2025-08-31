@@ -50,15 +50,15 @@ public class ScoreTexts : MonoBehaviour
         // get score and calculate medal
         int score = gameManager?.Score ?? 50;
 
-        if (score > 100)
+        if (score > 160)
         {
             goldMedal.SetActive(true);
         }
-        else if (score > 70)
+        else if (score > 80)
         {
             silverMedal.SetActive(true);
         }
-        else if (score > 30)
+        else if (score > 40)
         {
             bronzeMedal.SetActive(true);
         }
