@@ -2968,7 +2968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ba5e57229f447b6a7d877395681df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundImagePlacer
-  PositionLevel: 35
+  PositionLevel: 40
 --- !u!1001 &298716939
 PrefabInstance:
   m_ObjectHideFlags: 0

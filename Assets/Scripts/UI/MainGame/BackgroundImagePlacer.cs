@@ -22,7 +22,7 @@ public class BackgroundImagePlacer : MonoBehaviour
     private Vector3 getStartingPosition() {
         // starting position - (step to get to you - starting steps + half step)
         float startingHeight = Constants.STEP_SIZE * PositionLevel + bottomOfScreen;
-        float assignedHeight = startingHeight - ((PositionLevel - levelCameraStartsMoving) * Constants.STEP_SIZE / 2);
+        float assignedHeight = startingHeight - (PositionLevel * (Constants.STEP_SIZE / 2));
         return new Vector3(transform.position.x, assignedHeight, transform.position.z);
     }
 }
