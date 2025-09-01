@@ -22,10 +22,10 @@ public class Constants
     public const float STARTING_X_POSITION = 0f;
 
     // The amount of rows necessary to climb before you hit top speed
-    public const int ROWS_UNITLL_TOP_SPEED = 100;
+    public const int ROWS_UNITLL_TOP_SPEED = 70;
 
     // Determines the fastest time that can occur between steps
-    public const float MIN_TIME_BETWEEN_STEPS = 0.1f;
+    public const float MIN_TIME_BETWEEN_STEPS = 0.15f;
 
     // The starting speed between steps on a new life in seconds
     public const float STARTING_TIME_BETWEEN_STEPS = 0.3f;
@@ -60,6 +60,7 @@ public class Constants
 public class Tags
 {
     public const string MUSIC_BOX = "MusicBox";
+    public const string FX_SOURCE = "FxSource";
 }
 
 public class Scenes

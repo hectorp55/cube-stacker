@@ -14,10 +14,10 @@ public class SoundEffects : Singleton
 
     void Awake()
     {
-        GameObject musicBox = GameObject.FindGameObjectWithTag(Tags.MUSIC_BOX);
-        if (musicBox)
+        GameObject fxSource = GameObject.FindGameObjectWithTag(Tags.FX_SOURCE);
+        if (fxSource)
         {
-            audioSource = musicBox.GetComponent<SetAudioSettings>().fxSource;
+            audioSource = fxSource.GetComponent<AudioSource>();
         }
     }
 
@@ -37,7 +37,7 @@ public class SoundEffects : Singleton
 
     private void playSound(AudioClip soundEffect)
     {
-        if (soundEffect != null)
+        if (soundEffect != null & audioSource != null)
         {
             audioSource.pitch = Random.Range(minPitch, maxPitch);
             audioSource.PlayOneShot(soundEffect);

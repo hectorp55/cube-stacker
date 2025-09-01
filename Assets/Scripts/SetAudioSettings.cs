@@ -1,11 +1,13 @@
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.Audio;
 
 public class SetAudioSettings : MonoBehaviour
 {
-    public Volume globalVolume;
-    public AudioSource fxSource;
-    public AudioSource musicSource;
+    public AudioMixer mixer;
+
+    private const string Main = "MainVolume";
+    private const string Fx = "FxVolume";
+    private const string Music = "MusicVolume";
 
     // ===========================================================
     // Mono Methods
@@ -24,17 +26,23 @@ public class SetAudioSettings : MonoBehaviour
 
     public void DefineMasterVolume(int value)
     {
-        globalVolume.weight = getVolume(value);
+        SetVolume(Main, getVolume(value));
     }
 
     public void DefineSoundFxVolume(int value)
     {
-        fxSource.volume = getVolume(value);
+        SetVolume(Fx, getVolume(value));
     }
 
     public void DefineMusicVolume(int value)
     {
-        musicSource.volume = getVolume(value);
+        SetVolume(Music, getVolume(value));
+    }
+
+    public void SetVolume(string mixerProp, float value)
+    {
+        // value expected in decibels
+        mixer.SetFloat(mixerProp, value);
     }
 
     // ===========================================================
@@ -43,6 +51,7 @@ public class SetAudioSettings : MonoBehaviour
 
     private float getVolume(int volumeLevel)
     {
-        return volumeLevel / 100f;
+        float sliderValue = volumeLevel / 100f;
+        return Mathf.Log10(Mathf.Clamp(sliderValue, 0.0001f, 1f)) * 20f;
     } 
 }

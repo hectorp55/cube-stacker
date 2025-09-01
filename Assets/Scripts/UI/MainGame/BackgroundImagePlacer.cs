@@ -4,7 +4,6 @@ public class BackgroundImagePlacer : MonoBehaviour
 {
     public int PositionLevel;
     private float bottomOfScreen = -10.5f;
-    private int levelCameraStartsMoving = 9;
 
     // ===========================================================
     // Mono Methods
