@@ -59,6 +59,8 @@ public class Constants
 
 public class Tags
 {
+    public const string GAME_MANAGER = "GameManager";
+    public const string ADS_MANAGER = "AdManager";
     public const string MUSIC_BOX = "MusicBox";
     public const string FX_SOURCE = "FxSource";
 }

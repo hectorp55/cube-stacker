@@ -31,6 +31,11 @@ public class SoundEffects : Singleton
         playSound(placingSoundEffect);
     }
 
+    public void PlayButtonActionSound()
+    {
+        playSound(placingSoundEffect);
+    }
+
     // ===========================================================
     // Private Methods
     // ===========================================================
