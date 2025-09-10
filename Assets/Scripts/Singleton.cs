@@ -5,7 +5,11 @@ public class Singleton : MonoBehaviour
 {
     private static Singleton instance;
 
-    void Awake()
+    // ===========================================================
+    // Mono Methods
+    // ===========================================================
+
+    public void Awake()
     {
         checkForDuplicateInstances();
     }
@@ -24,9 +28,9 @@ public class Singleton : MonoBehaviour
         {
             Type parentType = this.GetType().BaseType;
 
-            // Error: another instance already exists
-            Debug.LogError($"Multiple instances of {parentType} detected in the scene!");
-            throw new System.Exception($"Multiple instances of {parentType} detected!");
+            // Another instance already exists remove this one
+            Debug.Log($"Multiple instances of {parentType} detected in the scene!");
+            Destroy(gameObject);
         }
     }
 }

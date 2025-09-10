@@ -14,13 +14,10 @@ public class AdsManager : Singleton
     // Mono Methods
     // ===========================================================
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         IronSource.Agent.setMetaData("is_test_suite", "enable"); 
         LevelPlay.OnInitSuccess += SdkInitializationCompletedEvent;
         LevelPlay.OnInitFailed += SdkInitializationFailedEvent;

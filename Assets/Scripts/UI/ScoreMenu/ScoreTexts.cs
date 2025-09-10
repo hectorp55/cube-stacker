@@ -38,7 +38,11 @@ public class ScoreTexts : MonoBehaviour
 
     private void TryAndStartAd()
     {
-        adsManager.LaunchInterstitialAd();
+        // If admanager is active launch the ad
+        if (adsManager)
+        {
+            adsManager.LaunchInterstitialAd();
+        }
     }
 
     private void DefineScoreText()
