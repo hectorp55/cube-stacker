@@ -53,6 +53,7 @@ public class BlockDropper : MonoBehaviour
         else
         {
             // TODO: play negative sounds effect
+            gameManager.SoundEffectsPlayer.PlayDropSound();
             // Play destroy animation
             blockAnimator.PlayDestroyAnimation();
             // Wait for one more cycle at the bottom for effect

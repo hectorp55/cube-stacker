@@ -3,6 +3,7 @@ using UnityEngine;
 public class SoundEffects : Singleton
 {
     public AudioClip placingSoundEffect;
+    public AudioClip droppingSoundEffect;
     private AudioSource audioSource;
 
     private float minPitch = 0.9f;
@@ -34,6 +35,11 @@ public class SoundEffects : Singleton
     public void PlayButtonActionSound()
     {
         playSound(placingSoundEffect);
+    }
+
+    public void PlayDropSound()
+    {
+        playSound(droppingSoundEffect);
     }
 
     // ===========================================================

@@ -8533,6 +8533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffects
   placingSoundEffect: {fileID: 8300000, guid: 2e0b4f167508243ab87d818fc237df8a, type: 3}
+  droppingSoundEffect: {fileID: 8300000, guid: 78edfd81805b94fb2a1bf62e54f74787, type: 3}
 --- !u!4 &683785014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4741566781863356071, guid: f6918958b85d24b0783f5ea1c248fd5b, type: 3}
