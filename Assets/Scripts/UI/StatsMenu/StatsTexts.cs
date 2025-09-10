@@ -3,10 +3,15 @@ using TMPro;
 
 public class StatsTexts : MonoBehaviour
 {
+    public TextMeshProUGUI blockedClimbedText;
     public TextMeshProUGUI blockedPlacedText;
     public TextMeshProUGUI tripleBlockedPlacedText;
     public TextMeshProUGUI doubleBlockedPlacedText;
     public TextMeshProUGUI singleBlockedPlacedText;
+    public TextMeshProUGUI blockedMissedText;
+    public TextMeshProUGUI tripleBlockedMissedText;
+    public TextMeshProUGUI doubleBlockedMissedText;
+    public TextMeshProUGUI singleBlockedMissedText;
     public TextMeshProUGUI gamesPlayedText;
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI averageScoreText;
@@ -20,7 +25,9 @@ public class StatsTexts : MonoBehaviour
 
     void Start()
     {
+        DefineBlocksClimbed();
         DefinePlacedText();
+        DefineMissedText();
         DefineGamePlayedText();
         DefineHighScoreText();
         DefineAverageScoreText();
@@ -30,6 +37,13 @@ public class StatsTexts : MonoBehaviour
     // ===========================================================
     // Private Methods
     // ===========================================================
+
+    private void DefineBlocksClimbed()
+    {
+        int blocksClimbed = Save.GetIntProperty(SaveProperties.BlocksClimbed);
+
+        blockedClimbedText.text = $"{blocksClimbed}";
+    }
 
     private void DefinePlacedText()
     {
@@ -42,6 +56,19 @@ public class StatsTexts : MonoBehaviour
         singleBlockedPlacedText.text = $"{singleBlocksPlaced}";
         doubleBlockedPlacedText.text = $"{doubleBlocksPlaced}";
         tripleBlockedPlacedText.text = $"{tripleBlocksPlaced}";
+    }
+
+    private void DefineMissedText()
+    {
+        int blocksMissed = Save.GetIntProperty(SaveProperties.BlocksMissed);
+        int singleBlocksMissed = Save.GetIntProperty(SaveProperties.SingleBlocksMissed);
+        int doubleBlocksMissed = Save.GetIntProperty(SaveProperties.DoubleBlocksMissed);
+        int tripleBlocksMissed = Save.GetIntProperty(SaveProperties.TripleBlocksMissed);
+
+        blockedMissedText.text = $"{blocksMissed}";
+        singleBlockedMissedText.text = $"{singleBlocksMissed}";
+        doubleBlockedMissedText.text = $"{doubleBlocksMissed}";
+        tripleBlockedMissedText.text = $"{tripleBlocksMissed}";
     }
 
     private void DefineGamePlayedText()
@@ -60,7 +87,7 @@ public class StatsTexts : MonoBehaviour
 
     private void DefineAverageScoreText()
     {
-        int blocksPlaced = Save.GetIntProperty(SaveProperties.BlocksPlaced);
+        int blocksPlaced = Save.GetIntProperty(SaveProperties.BlocksClimbed);
         int gamesPlayed = Save.GetIntProperty(SaveProperties.GamesPlayed);
         int averageScore = blocksPlaced / gamesPlayed;
 

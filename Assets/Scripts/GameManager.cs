@@ -12,6 +12,7 @@ public class GameManager : Singleton
 
     private BlockController blockController;
     private int remainingLives = Constants.START_LIVES_COUNT;
+    private int roundStartingLives = Constants.START_LIVES_COUNT;
     private int blocksDropping = 0;
 
     // ===========================================================
@@ -44,6 +45,9 @@ public class GameManager : Singleton
         // Make sure no more blocks are still dropping
         if (blocksDropping <= 0)
         {
+            // Record drop stats
+            StatsRecorder.RecordBlockerMiss(roundStartingLives, remainingLives);
+
             // If we still have lives keep playing otherwise gameover
             if (remainingLives <= 0)
             {
@@ -97,6 +101,8 @@ public class GameManager : Singleton
 
     private void continueGame()
     {
+        // Remember how many lives I had at start of round
+        roundStartingLives = remainingLives;
         // set active game state
         IsGameActive = true;
         // start the actual game movement
