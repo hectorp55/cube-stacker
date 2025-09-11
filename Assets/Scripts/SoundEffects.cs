@@ -39,7 +39,7 @@ public class SoundEffects : Singleton
 
     public void PlayDropSound()
     {
-        playSound(droppingSoundEffect);
+        // playSound(droppingSoundEffect);
     }
 
     // ===========================================================
