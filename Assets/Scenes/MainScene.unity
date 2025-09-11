@@ -13453,13 +13453,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042811913}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.16441685, w: 0.986391}
-  m_LocalPosition: {x: -6.82, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.18933281, w: 0.98191303}
+  m_LocalPosition: {x: -4.47, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1797287313}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.927}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.828}
 --- !u!212 &1042811915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13620,7 +13620,7 @@ Transform:
   m_GameObject: {fileID: 1062598955}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.37, y: 0, z: 0}
+  m_LocalPosition: {x: -5.46, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15613,7 +15613,7 @@ Transform:
   m_GameObject: {fileID: 1188576952}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.7, y: 0, z: 0}
+  m_LocalPosition: {x: -5.67, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22409,7 +22409,7 @@ Transform:
   m_GameObject: {fileID: 1775007731}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.23, y: 0, z: 0}
+  m_LocalPosition: {x: 5.63, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25621,13 +25621,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052090356}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.12418924, w: 0.9922586}
-  m_LocalPosition: {x: 6.94, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.47, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1797287313}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -14.268}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2052090358
 SpriteRenderer:
   m_ObjectHideFlags: 0
