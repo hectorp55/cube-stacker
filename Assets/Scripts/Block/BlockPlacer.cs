@@ -40,8 +40,8 @@ public class BlockPlacer : MonoBehaviour
 
     public void PlaceBlock()
     {
-        // Only allow a place if the previous place routine is done
-        if (!isPlacingBlock)
+        // Only allow a place if the previous place routine is done and the game is active
+        if (!isPlacingBlock && gameManager.IsGameActive)
         {
             isPlacingBlock = true;
             // Place block
