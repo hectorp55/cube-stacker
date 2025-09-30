@@ -55,6 +55,9 @@ public class Constants
     // percentage chance a shooting star will be generated (%)
     public static float PERCENTAGE_CHANCE_OF_SHOOTING_STAR = 5;
 
+    public const float CREATORS_HIGH_SCORE = 320f;
+
+    public const float EMBARRASED = 10f;
 }
 
 public class Tags

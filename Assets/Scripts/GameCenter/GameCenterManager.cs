@@ -47,9 +47,8 @@ public class GameCenterManager : Singleton
     }
 
     // Call this when a player completes an achievement
-    public async void ReportAchievement(string achievementId)
+    public async void ReportAchievement(string achievementId, float progressPercent)
     {
-        var progressPercentage = 100;
         var showCompletionBanner = true;
 
         var achievements = await GKAchievement.LoadAchievements();
@@ -61,11 +60,18 @@ public class GameCenterManager : Singleton
         // If not already completed, update it
         if (!achievement.IsCompleted)
         {
-            achievement.PercentComplete = progressPercentage;
+            achievement.PercentComplete = progressPercent * 100f;
             achievement.ShowCompletionBanner = showCompletionBanner;
 
             await GKAchievement.Report(achievement);
         }
+    }
+
+    public async void DisplayGameCenterDashboard()
+    {
+        var gameCenter = GKGameCenterViewController.Init(GKGameCenterViewController.GKGameCenterViewControllerState.Dashboard);
+        // await for user to dismiss...
+        await gameCenter.Present();
     }
 
     // ===========================================================
@@ -85,6 +91,7 @@ public class GameCenterManager : Singleton
         else
         {
             Debug.Log("AppleGameCenter player already logged in.");
+            ReplaceProfileIcon();
         }
     }
 

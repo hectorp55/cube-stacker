@@ -8,6 +8,8 @@ public class GameManager : Singleton
     public TouchInput startTouchInput;
     public bool IsGameActive { get; private set; } = false;
     public int Score { get; private set; } = 0;
+    public int TriplePlace { get; private set; } = 0;
+    public int SinglePlace { get; private set; } = 0;
     public SoundEffects SoundEffectsPlayer { get; private set; }
 
     private BlockController blockController;
@@ -63,6 +65,16 @@ public class GameManager : Singleton
     public void Scored()
     {
         Score += 1;
+
+        int blocksPlaced = getActiveBlockCount();
+        if (blocksPlaced == 3)
+        {
+            TriplePlace += 1;
+        }
+        else if (blocksPlaced == 1)
+        {
+            SinglePlace += 1;   
+        }
     }
 
     public void StartGame()
@@ -128,5 +140,23 @@ public class GameManager : Singleton
             element.SetActive(false);
         }
 
+    }
+
+    private int getActiveBlockCount()
+    {
+        int count = 0;
+        if (blockController.leftCube.activeSelf)
+        {
+            count += 1;
+        }
+        if (blockController.middleCube.activeSelf)
+        {
+            count += 1;
+        }
+        if (blockController.rightCube.activeSelf)
+        {
+            count += 1;
+        }
+        return count;
     }
 }

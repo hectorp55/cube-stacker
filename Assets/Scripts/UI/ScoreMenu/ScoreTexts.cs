@@ -13,6 +13,7 @@ public class ScoreTexts : MonoBehaviour
     private GameManager gameManager;
     private AdsManager adsManager;
     private GameCenterManager gameCenter;
+    private const int GoldMedal = 160;
 
     // ===========================================================
     // Mono Methods
@@ -33,6 +34,8 @@ public class ScoreTexts : MonoBehaviour
         DefineMedal();
         TryAndReportScore();
         TryAndStartAd();
+        BlockClimbAchievements();
+        CheckForHighScoreAchievement();
     }
 
     // ===========================================================
@@ -72,23 +75,63 @@ public class ScoreTexts : MonoBehaviour
     private void DefineMedal()
     {
         // get score and calculate medal
-        int score = gameManager?.Score ?? 50;
+        int score = gameManager?.Score ?? 0;
 
-        if (score > 160)
+        if (score > GoldMedal)
         {
             goldMedal.SetActive(true);
+            gameCenter.ReportAchievement(Achievements.GoldMedal, Achievements.Complete);
         }
         else if (score > 80)
         {
             silverMedal.SetActive(true);
+            gameCenter.ReportAchievement(Achievements.SilverMedal, Achievements.Complete);
         }
         else if (score > 40)
         {
             bronzeMedal.SetActive(true);
+            gameCenter.ReportAchievement(Achievements.BronzeMedal, Achievements.Complete);
         }
         else
         {
             emptyMedal.SetActive(true);
+        }
+    }
+
+    private void BlockClimbAchievements()
+    {
+        float blocksClimbed = Save.GetIntProperty(SaveProperties.BlocksClimbed);
+
+        gameCenter.ReportAchievement(Achievements.ThousandCareerBlocks, blocksClimbed / Achievements.ThousandCareerBlocksCompleted);
+        gameCenter.ReportAchievement(Achievements.TenThousandCareerBlocks, blocksClimbed / Achievements.TenThousandCareerBlocksCompleted);
+        gameCenter.ReportAchievement(Achievements.HundredThousandCareerBlocks, blocksClimbed / Achievements.HundredThousandCareerBlocksCompleted);
+        gameCenter.ReportAchievement(Achievements.MillionCareerBlocks, blocksClimbed / Achievements.MillionCareerBlocksCompleted);
+    }
+
+    private void CheckForHighScoreAchievement()
+    {
+        // get score and calculate medal
+        int score = gameManager?.Score ?? 0;
+
+        if (score > Constants.CREATORS_HIGH_SCORE)
+        {
+            gameCenter.ReportAchievement(Achievements.CreatorsHighScore, Achievements.Complete);
+        }
+        if (score < Constants.EMBARRASED)
+        {
+            gameCenter.ReportAchievement(Achievements.EarlyDropBlock, Achievements.Complete);
+        }
+
+        int triplePlaces = gameManager?.TriplePlace ?? 0;
+        int singlePlaces = gameManager?.SinglePlace ?? 0;
+
+        if (triplePlaces > GoldMedal)
+        {
+            gameCenter.ReportAchievement(Achievements.TripleStackGold, Achievements.Complete);
+        }
+        if (singlePlaces > GoldMedal)
+        {
+            gameCenter.ReportAchievement(Achievements.GoldSingleBlocks, Achievements.Complete);
         }
     }
 }

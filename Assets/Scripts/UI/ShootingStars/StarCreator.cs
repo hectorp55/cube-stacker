@@ -14,6 +14,7 @@ public class StarCreator : MonoBehaviour
     private float zSpawnPosition = 0f;
 
     private float nextSpawnTime;
+    private GameCenterManager gameCenter;
 
     // ===========================================================
     // Mono Methods
@@ -21,6 +22,8 @@ public class StarCreator : MonoBehaviour
 
     void Start()
     {
+        gameCenter = GameObject.FindGameObjectWithTag(Tags.GAMECENTER_MANAGER)?.GetComponent<GameCenterManager>();
+
         scheduleNextSpawn();
     }
 
@@ -33,6 +36,9 @@ public class StarCreator : MonoBehaviour
                 spawnPrefab();
                 // Count stat of stars
                 StatsRecorder.RecordShootingStarSeen();
+                // Check acheviement
+                int shootingStarCount = Save.GetIntProperty(SaveProperties.ShootingStarsSeen);
+                gameCenter.ReportAchievement(Achievements.HundredShootingStars, shootingStarCount/Achievements.ShootingStarsCompleteCount);
             }
             scheduleNextSpawn();
         }
