@@ -5,13 +5,24 @@ public class UndoDoNotDestroy : MonoBehaviour
 {
     void Start()
     {
-        GameObject gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        // GameManager
+        GameObject gameManager = GameObject.FindGameObjectWithTag(Tags.GAME_MANAGER);
         if (gameManager)
         {
             Scene currentScene = SceneManager.GetActiveScene();
 
             // Move gamemanager back to active scene so it is destroyed as normal
-            SceneManager.MoveGameObjectToScene(gameManager, currentScene);   
+            SceneManager.MoveGameObjectToScene(gameManager, currentScene);
+        }
+        
+        // GameCenter Manager
+        GameObject gameCenter = GameObject.FindGameObjectWithTag(Tags.GAMECENTER_MANAGER);
+        if (gameCenter)
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+
+            // Move gamecenter back to active scene so it is destroyed as normal
+            SceneManager.MoveGameObjectToScene(gameCenter, currentScene);   
         }
     }
 }

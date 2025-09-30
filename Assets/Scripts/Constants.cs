@@ -63,6 +63,7 @@ public class Tags
     public const string ADS_MANAGER = "AdManager";
     public const string MUSIC_BOX = "MusicBox";
     public const string FX_SOURCE = "FxSource";
+    public const string GAMECENTER_MANAGER = "GameCenter";
 }
 
 public class Scenes

@@ -12,6 +12,7 @@ public class ScoreTexts : MonoBehaviour
     public GameObject bronzeMedal;
     private GameManager gameManager;
     private AdsManager adsManager;
+    private GameCenterManager gameCenter;
 
     // ===========================================================
     // Mono Methods
@@ -22,6 +23,7 @@ public class ScoreTexts : MonoBehaviour
         // Keep in mind this can be null
         gameManager = GameObject.FindGameObjectWithTag(Tags.GAME_MANAGER)?.GetComponent<GameManager>();
         adsManager = GameObject.FindGameObjectWithTag(Tags.ADS_MANAGER)?.GetComponent<AdsManager>();
+        gameCenter = GameObject.FindGameObjectWithTag(Tags.GAMECENTER_MANAGER)?.GetComponent<GameCenterManager>();
     }
 
     void Start()
@@ -29,12 +31,22 @@ public class ScoreTexts : MonoBehaviour
         DefineScoreText();
         DefineHighScoreText();
         DefineMedal();
+        TryAndReportScore();
         TryAndStartAd();
     }
 
     // ===========================================================
     // Private Methods
     // ===========================================================
+
+    private void TryAndReportScore()
+    {
+        // If gamecenter is active report score
+        if (gameCenter)
+        {
+            gameCenter.TryToReportScoreToLeaderboards(gameManager?.Score ?? 0);
+        }
+    }
 
     private void TryAndStartAd()
     {
