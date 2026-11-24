@@ -21,6 +21,8 @@ public class GameCenterManager : Singleton
     // ===========================================================
     void Start()
     {
+        if (IsDuplicate) return;
+
         DontDestroyOnLoad(gameObject);
         Login();
     }

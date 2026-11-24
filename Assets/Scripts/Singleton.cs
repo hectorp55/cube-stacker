@@ -1,9 +1,16 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
-    private static Singleton instance;
+    // One instance per subclass (AdsManager, GameCenterManager, ...), so
+    // different managers don't treat each other as duplicates.
+    private static readonly Dictionary<Type, Singleton> instances = new Dictionary<Type, Singleton>();
+
+    // True on a copy that is being destroyed, so its Start can bail out before
+    // Unity finishes destroying it at the end of the frame
+    protected bool IsDuplicate { get; private set; }
 
     // ===========================================================
     // Mono Methods
@@ -20,16 +27,18 @@ public class Singleton : MonoBehaviour
 
     private void checkForDuplicateInstances()
     {
-        if (instance == null)
+        Type type = GetType();
+
+        // Unity's == treats a destroyed object as null, so a stale entry gets replaced
+        if (!instances.TryGetValue(type, out Singleton instance) || instance == null)
         {
-            instance = this;
+            instances[type] = this;
         }
         else if (instance != this)
         {
-            Type parentType = this.GetType().BaseType;
-
             // Another instance already exists remove this one
-            Debug.Log($"Multiple instances of {parentType} detected in the scene!");
+            Debug.Log($"Multiple instances of {type} detected in the scene!");
+            IsDuplicate = true;
             Destroy(gameObject);
         }
     }
