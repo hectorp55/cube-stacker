@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_number": "906841506395",
+    "project_id": "rizze-blockstacker",
+    "storage_bucket": "rizze-blockstacker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906841506395:ios:bb9df7d0747df07d34b57e",
+        "android_client_info": {
+          "package_name": "sockgames.blockstacker"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcmRMht3ms1UQ0V6-a9Y4k7TZqeMeyzpk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

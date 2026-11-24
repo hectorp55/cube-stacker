@@ -107,6 +107,8 @@ public class GameManager : Singleton
     {
         // Try to update the highscore
         Save.TryUpdateHighScore(Score);
+        // Record the round in analytics
+        AnalyticsManager.RecordRoundPlayed(Score, TriplePlace, SinglePlace);
         // Navigate to retry screen
         SceneManager.LoadScene(Scenes.SCORE_SCENE);
     }

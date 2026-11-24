@@ -26089,6 +26089,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4741566781863356071, guid: f6918958b85d24b0783f5ea1c248fd5b, type: 3}
   m_PrefabInstance: {fileID: 1410523583}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2030190483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030190484}
+  - component: {fileID: 2030190485}
+  m_Layer: 0
+  m_Name: AnalyticsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030190484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030190483}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2030190485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030190483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db263108dd90449e9a74be3e1a2510c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnalyticsManager
 --- !u!1001 &2039229119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27707,6 +27751,7 @@ SceneRoots:
   - {fileID: 682590034}
   - {fileID: 2007054695}
   - {fileID: 310055495}
+  - {fileID: 2030190484}
   - {fileID: 1324887187}
   - {fileID: 330585546}
   - {fileID: 410087041}

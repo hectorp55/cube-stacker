@@ -127,6 +127,7 @@ public class AdsManager : Singleton
     void InterstitialOnAdDisplayedEvent(LevelPlayAdInfo adInfo)
     {
         Debug.Log($"[LevelPlaySample] Received InterstitialOnAdDisplayedEvent With AdInfo: {adInfo}");
+        AnalyticsManager.RecordAdShown();
     }
     void InterstitialOnAdDisplayFailedEvent(LevelPlayAdInfo adInfo, LevelPlayAdError error)
     {

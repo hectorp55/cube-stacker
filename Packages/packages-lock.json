@@ -14,6 +14,28 @@
         "com.apple.unityplugin.core": "3.1.8"
       }
     },
+    "com.google.external-dependency-manager": {
+      "version": "file:GooglePackages/com.google.external-dependency-manager-1.2.189.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {}
+    },
+    "com.google.firebase.analytics": {
+      "version": "file:GooglePackages/com.google.firebase.analytics-13.17.1.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.google.firebase.app": "13.17.1"
+      }
+    },
+    "com.google.firebase.app": {
+      "version": "file:GooglePackages/com.google.firebase.app-13.17.1.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.google.external-dependency-manager": "1.2.186"
+      }
+    },
     "com.nobi.roundedcorners": {
       "version": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
       "depth": 0,

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<projectSettings>
+  <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="9524120a31a64f04b6a36f176f0e3740" />
+  <projectSetting name="com.google.external-dependency-managerAnalyticsEnabled" value="True" />
+  <projectSetting name="com.google.firebaseAnalyticsCookie" value="0d3a8ffd9b004960bb59d1067b81c3f8" />
+  <projectSetting name="com.google.firebaseAnalyticsEnabled" value="True" />
+  <projectSetting name="Google.IOSResolver.SwiftPackageManagerEnabled" value="False" />
+</projectSettings>
