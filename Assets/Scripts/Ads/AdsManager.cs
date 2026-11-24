@@ -18,7 +18,7 @@ public class AdsManager : Singleton
     {
         DontDestroyOnLoad(gameObject);
 
-        IronSource.Agent.setMetaData("is_test_suite", "enable"); 
+        LevelPlay.SetMetaData("is_test_suite", "enable"); 
         LevelPlay.OnInitSuccess += SdkInitializationCompletedEvent;
         LevelPlay.OnInitFailed += SdkInitializationFailedEvent;
 
@@ -40,7 +40,7 @@ public class AdsManager : Singleton
 
     public void LaunchTestSuite()
     {
-        IronSource.Agent.launchTestSuite();
+        LevelPlay.LaunchTestSuite();
     }
 
     // ===========================================================
@@ -110,9 +110,9 @@ public class AdsManager : Singleton
     {
         Debug.Log($"[LevelPlaySample] Received InterstitialOnAdDisplayedEvent With AdInfo: {adInfo}");
     }
-    void InterstitialOnAdDisplayFailedEvent(LevelPlayAdDisplayInfoError infoError)
+    void InterstitialOnAdDisplayFailedEvent(LevelPlayAdInfo adInfo, LevelPlayAdError error)
     {
-        Debug.Log($"[LevelPlaySample] Received InterstitialOnAdDisplayFailedEvent With InfoError: {infoError}");
+        Debug.Log($"[LevelPlaySample] Received InterstitialOnAdDisplayFailedEvent With AdInfo: {adInfo} and Error: {error}");
     }
     void InterstitialOnAdClickedEvent(LevelPlayAdInfo adInfo)
     {

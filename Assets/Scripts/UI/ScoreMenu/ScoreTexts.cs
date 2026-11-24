@@ -47,7 +47,8 @@ public class ScoreTexts : MonoBehaviour
         // If gamecenter is active report score
         if (gameCenter)
         {
-            gameCenter.TryToReportScoreToLeaderboards(gameManager?.Score ?? 0);
+            int highScore = Save.GetHighScore();
+            gameCenter.TryToReportScoreToLeaderboards(highScore);
         }
     }
 

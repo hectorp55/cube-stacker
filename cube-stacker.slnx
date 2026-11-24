@@ -1,0 +1,7 @@
+﻿<Solution>
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Apple.Core.Editor.csproj" />
+  <Project Path="Apple.Core.Tests.csproj" />
+  <Project Path="Apple.Core.csproj" />
+  <Project Path="Apple.Core.Tests.Editor.csproj" />
+</Solution>
