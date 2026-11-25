@@ -101,12 +101,13 @@ public class ScoreTexts : MonoBehaviour
 
     private void BlockClimbAchievements()
     {
-        float blocksClimbed = Save.GetIntProperty(SaveProperties.BlocksClimbed);
+        // Career block achievements count every block placed, not rows climbed
+        float blocksPlaced = Save.GetIntProperty(SaveProperties.BlocksPlaced);
 
-        gameCenter.ReportAchievement(Achievements.ThousandCareerBlocks, blocksClimbed / Achievements.ThousandCareerBlocksCompleted);
-        gameCenter.ReportAchievement(Achievements.TenThousandCareerBlocks, blocksClimbed / Achievements.TenThousandCareerBlocksCompleted);
-        gameCenter.ReportAchievement(Achievements.HundredThousandCareerBlocks, blocksClimbed / Achievements.HundredThousandCareerBlocksCompleted);
-        gameCenter.ReportAchievement(Achievements.MillionCareerBlocks, blocksClimbed / Achievements.MillionCareerBlocksCompleted);
+        gameCenter.ReportAchievement(Achievements.ThousandCareerBlocks, blocksPlaced / Achievements.ThousandCareerBlocksCompleted);
+        gameCenter.ReportAchievement(Achievements.TenThousandCareerBlocks, blocksPlaced / Achievements.TenThousandCareerBlocksCompleted);
+        gameCenter.ReportAchievement(Achievements.HundredThousandCareerBlocks, blocksPlaced / Achievements.HundredThousandCareerBlocksCompleted);
+        gameCenter.ReportAchievement(Achievements.MillionCareerBlocks, blocksPlaced / Achievements.MillionCareerBlocksCompleted);
     }
 
     private void CheckForHighScoreAchievement()

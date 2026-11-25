@@ -89,7 +89,8 @@ public class StatsTexts : MonoBehaviour
     {
         int blocksPlaced = Save.GetIntProperty(SaveProperties.BlocksClimbed);
         int gamesPlayed = Save.GetIntProperty(SaveProperties.GamesPlayed);
-        int averageScore = blocksPlaced / gamesPlayed;
+        // Avoid dividing by zero before any games have been played
+        int averageScore = gamesPlayed > 0 ? blocksPlaced / gamesPlayed : 0;
 
         averageScoreText.text = $"{averageScore}";
     }
