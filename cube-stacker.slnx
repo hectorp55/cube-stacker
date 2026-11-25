@@ -3,5 +3,6 @@
   <Project Path="Apple.Core.Editor.csproj" />
   <Project Path="Apple.Core.Tests.csproj" />
   <Project Path="Apple.Core.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="Apple.Core.Tests.Editor.csproj" />
 </Solution>

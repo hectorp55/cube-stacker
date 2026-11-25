@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Services.LevelPlay;
 using UnityEngine;
 
@@ -18,13 +19,21 @@ public class AdsManager : Singleton
     // Mono Methods
     // ===========================================================
 
-    void Start()
+    IEnumerator Start()
     {
-        if (IsDuplicate) return;
+        if (IsDuplicate) yield break;
 
         DontDestroyOnLoad(gameObject);
 
-        LevelPlay.SetMetaData("is_test_suite", "enable"); 
+        // Ask for tracking permission before the ads SDK starts, so it can use the answer
+        yield return TrackingAuthorization.Request();
+
+        // Test Suite only in the editor and Development Builds, never in release builds
+        if (Debug.isDebugBuild)
+        {
+            LevelPlay.SetMetaData("is_test_suite", "enable");
+        }
+
         LevelPlay.OnInitSuccess += SdkInitializationCompletedEvent;
         LevelPlay.OnInitFailed += SdkInitializationFailedEvent;
 
